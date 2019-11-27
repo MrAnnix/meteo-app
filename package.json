@@ -24,6 +24,9 @@
   },
   "homepage": "https://github.com/MrAnnix/meteo-app#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "bootstrap": "^4.4.0",
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.0"
   }
 }
