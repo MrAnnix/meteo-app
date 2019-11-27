@@ -4,6 +4,7 @@
   "description": "Consulta el pronóstico del tiempo de forma sencilla y clara",
   "main": "index.js",
   "scripts": {
+    "start": "node ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -30,6 +31,10 @@
     "express-generator": "^4.16.1",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0",
-    "pug": "^2.0.4"
+    "pug": "^2.0.4",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
   }
 }
