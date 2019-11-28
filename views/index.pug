@@ -1,5 +1,19 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+
+  div(class='container')
+    h1= title
+    fieldset
+      form(class='md-form mt-0', action='/', method='get')
+        i(class='fas fa-search fa-icons fa-button__icon')
+        input(name='location', class='form-control mb-1', type='text', placeholder='Buscar ubicación, código postal...')
+        input(type='submit', style='position: absolute; left: -9999px')
+     
+    if location
+      p You entered #{location}
+      
+    div(class='row')
+      div(class='col')
+        img(src='/common/img/weather/sun.svg')
+      div(class='col')

@@ -6,3 +6,18 @@ body {
 a {
   color: #00B7FF;
 }
+
+.md-form.mt-0{
+  display:flex;
+  align-items: center;  
+}
+
+.fa-icons.fa-button__icon{
+  position:absolute;
+  margin-left: 9px;
+  color: #ddd;
+}
+
+.fa-button__icon + input{
+  padding-left: 30px;
+}

@@ -1,17 +1,26 @@
 doctype html
 html
   head
-    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    // Basic needs
     meta(charset='utf-8')
     title= title
+    meta(name='description' content='Consulta la información meteorológica de forma rápida y sencilla')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    
+    // CSS
     link(rel='stylesheet', href='/common/css/style.css')
     link(rel='stylesheet', href='/lib/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/lib/fontawesome/css/all.min.css')
+    
+    // Favicon
     link(rel='icon', href='/common/img/favicon.png')
     
   body
+    // Content
     block content
  
    
+    // JavaScript
     link(rel='stylesheet', href='/lib/jquery/js/jquery.min.js')
     link(rel='stylesheet', href='/lib/popper/js/popper.min.js')
     link(rel='stylesheet', href='/lib/bootstrap/js/bootstrap.min.js')
