@@ -11,12 +11,33 @@ block content
         input(type='submit', style='position: absolute; left: -9999px')
      
     if location
-      p You entered #{location}
+      p Está en #{location}
       
     if city
-      p You are in #{city}
+      p Está en #{city}
       
     div(class='row')
       div(class='col')
         img(src='/common/img/weather/sun.svg')
       div(class='col')
+
+    div(class='row')
+      div(class='col')
+        p Predicción de los próximos 7 dias
+
+    div(class="table")
+     table(id="dtHorizontalExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%")
+      tr
+       td 
+        img(src='/common/img/weather/sun.svg')
+       td 
+        img(src='/common/img/weather/rain.svg')
+       td 
+        img(src='/common/img/weather/comet.svg')
+       td Edinburgh
+       td 61
+       td 2011/04/25
+       td $320,800
+       td 5421
+       td t.nixon@datatables.net
+    
