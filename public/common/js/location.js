@@ -1,14 +1,20 @@
-function sendLocation(lat, lng) {
+function sendLocation(loc, lat, lng) {
   $.ajax({
-    url: "/",
+    url: "/weather",
     data: {
+      location: loc,
       latitude: lat,
       longitude: lng
     },
     success: function (data) {
-      document.getElementById('realPosition').innerHTML = 'Latitude: ' + lat + ' Longitude: ' + lng;
+      document.getElementById('weatherGrid').innerHTML = data;
     }
   });
+}
+
+function get(name){
+   if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+      return decodeURIComponent(name[1]);
 }
 
 function getLocation() {
@@ -17,7 +23,7 @@ function getLocation() {
     navigator.geolocation.getCurrentPosition(
       function success(position) {
       // for when getting location is a success
-      sendLocation(position.coords.latitude, position.coords.longitude)
+      sendLocation(get('location'), position.coords.latitude, position.coords.longitude)
     },
       function error(error_message) {
       // for when getting location results in an error

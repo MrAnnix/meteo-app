@@ -7,47 +7,9 @@ block content
     fieldset
       form(class='md-form mt-0', action='/', method='get')
         i(class='fas fa-search fa-icons fa-button__icon')
-        input(name='location', class='form-control mb-1', type='text', placeholder='Buscar ubicación, código postal...')
+        input(name='location', class='form-control mb-1', type='text', placeholder='Buscar ubicación, código postal...', required)
         input(type='submit', style='position: absolute; left: -9999px')
-     
-    if location
-      p Está en #{location}
-      
-    p(id='realPosition')
-	  
-    div(class='meteo-grid-container')
-      div(class='meteo-icono')
-        img(src='/common/img/weather/sun.svg')
-      div(class='meteo-temperatura')
-        p 8
-      div(class='meteo-minMax')
-        p 1/10
-      div(class='meteo-humedad')
-        p 80%
-      div(class='meteo-direccionViento')
-        p NE
-      div(class='meteo-velocidadViento')
-        p 20km/h
-      div(class='meteo-indiceUV')
-        p UV
-      div(class='meteo-masInfo')
-        p +info
-
-    div(class='row')
-      div(class='col')
-        p Predicción de los próximos 7 dias
-
-    div(class='prev-grid-container')
-      div(class='meteo-day1')
-        img(src='/common/img/weather/comet.svg')
-      div(class='meteo-day2')
-        img(src='/common/img/weather/rain.svg')
-      div(class='meteo-day3')
-        img(src='/common/img/weather/night.svg')
-      div(class='meteo-day4')
-        img(src='/common/img/weather/storm.svg')
-      div(class='meteo-day5')
-        img(src='/common/img/weather/snowflake.svg')
-      div(class='meteo-day6')
-        img(src='/common/img/weather/wind.svg')
+    
+    // Weather table 
+    div(id='weatherGrid')
     
