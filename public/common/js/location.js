@@ -7,13 +7,11 @@ function getLocation() {
 }
 
 function sendLocation() {
+  console.log(position);
   $.ajax({
     type: "GET",
           url: "/search",
-          data: {coordinates: location},
-          success: function(data){
-            alert('Successful');
-          },
+          data: {latitude: position.coords.latitude, longitude: position.coords.longitude}
   });
 }
 
