@@ -6,7 +6,6 @@ function sendLocation(lat, lng) {
       longitude: lng
     },
     success: function (data) {
-      console.log('Latitude: ' + lat + ' Longitude: ' + lng);
       document.getElementById('realPosition').innerHTML = 'Latitude: ' + lat + ' Longitude: ' + lng;
     }
   });
