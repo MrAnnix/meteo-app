@@ -22,26 +22,25 @@ a {
   padding-left: 30px;
 }
 
-.lt-grid-container {
+.meteo-grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-template-areas: "icono icono icono icono temperatura temperatura minMax minMax" "icono icono icono icono temperatura temperatura humedad humedad" "icono icono icono icono viento viento velocidad velocidad" "icono icono icono icono iuv iuv extra extra";
+  grid-template-areas: "icono icono icono icono temperatura temperatura minMax minMax" "icono icono icono icono temperatura temperatura humedad humedad" "icono icono icono icono direccionViento direccionViento velocidadViento velocidadViento" "icono icono icono icono indiceUV indiceUV masInfo masInfo";
 }
 
-.lt-temperatura { grid-area: lt-temperatura; }
+.meteo-icono { grid-area: meteo-icono; }
 
-.lt-icono { grid-area: lt-icono; }
+.meteo-temperatura { grid-area: meteo-temperatura; }
 
-.lt-minMax { grid-area: lt-minMax; }
+.meteo-minMax { grid-area: meteo-minMax; }
 
-.lt-humedad { grid-area: lt-humedad; }
+.meteo-humedad { grid-area: meteo-humedad; }
 
-.lt-viento { grid-area: lt-viento; }
+.meteo-direccionViento { grid-area: meteo-direccionViento; }
 
-.lt-iuv { grid-area: lt-iuv; }
+.meteo-velocidadViento { grid-area: meteo-velocidadViento; }
 
-.lt-velocidad { grid-area: lt-velocidad; }
+.meteo-indiceUV { grid-area: meteo-indiceUV; }
 
-.lt-extra { grid-area: lt-extra; }
-
+.meteo-masInfo { grid-area: meteo-masInfo; }
