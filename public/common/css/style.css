@@ -22,24 +22,26 @@ a {
   padding-left: 30px;
 }
 
-.dtHorizontalExampleWrapper {
-max-width: 600px;
-margin: 0 auto;
-}
-#dtHorizontalExample th, td {
-white-space: nowrap;
+.lt-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "icono icono icono icono temperatura temperatura minMax minMax" "icono icono icono icono temperatura temperatura humedad humedad" "icono icono icono icono viento viento velocidad velocidad" "icono icono icono icono iuv iuv extra extra";
 }
 
-table.dataTable thead .sorting:after,
-table.dataTable thead .sorting:before,
-table.dataTable thead .sorting_asc:after,
-table.dataTable thead .sorting_asc:before,
-table.dataTable thead .sorting_asc_disabled:after,
-table.dataTable thead .sorting_asc_disabled:before,
-table.dataTable thead .sorting_desc:after,
-table.dataTable thead .sorting_desc:before,
-table.dataTable thead .sorting_desc_disabled:after,
-table.dataTable thead .sorting_desc_disabled:before {
-bottom: .5em;
-}
+.lt-temperatura { grid-area: lt-temperatura; }
+
+.lt-icono { grid-area: lt-icono; }
+
+.lt-minMax { grid-area: lt-minMax; }
+
+.lt-humedad { grid-area: lt-humedad; }
+
+.lt-viento { grid-area: lt-viento; }
+
+.lt-iuv { grid-area: lt-iuv; }
+
+.lt-velocidad { grid-area: lt-velocidad; }
+
+.lt-extra { grid-area: lt-extra; }
 

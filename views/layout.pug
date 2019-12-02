@@ -22,6 +22,13 @@ html
    
     // JavaScript
     script(type='text/javascript', href='/common/js/location.js')
+    script.
+      window.onload = function () {
+        getLocation();
+        sendLocation();
+      };
+
+
     script(type='text/javascript', href='/lib/jquery/js/jquery.min.js')
     script(type='text/javascript', href='/lib/popper/js/popper.min.js')
     script(type='text/javascript', href='/lib/bootstrap/js/bootstrap.min.js')
