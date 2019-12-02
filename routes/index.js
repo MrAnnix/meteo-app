@@ -3,12 +3,9 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  let input_location = req.query.location;
-  let real_location = req.query.coord;
+  let location = req.query.location;
   
-  console.log(real_location)
-  
-  res.render('index', { title: 'meteo', input_location, real_location });
+  res.render('index', { title: 'meteo', location });
 });
 
 module.exports = router;

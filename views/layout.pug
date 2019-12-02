@@ -20,8 +20,12 @@ html
     block content
  
    
-    // JavaScript
-    script(type='text/javascript', href='/common/js/location.js')
-    script(type='text/javascript', href='/lib/jquery/js/jquery.min.js')
-    script(type='text/javascript', href='/lib/popper/js/popper.min.js')
-    script(type='text/javascript', href='/lib/bootstrap/js/bootstrap.min.js')
+    // JavaScript      
+    script(type='text/javascript', src='/lib/jquery/js/jquery.min.js')
+    script(type='text/javascript', src='/lib/popper/js/popper.min.js')
+    script(type='text/javascript', src='/lib/bootstrap/js/bootstrap.min.js')
+    script(type='text/javascript', src='/common/js/location.js')
+    script.
+      $(function(){
+        getLocation();
+      });
