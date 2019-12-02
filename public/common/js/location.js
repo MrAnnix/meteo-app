@@ -7,7 +7,12 @@ function sendLocation(loc, lat, lng) {
       longitude: lng
     },
     success: function (data) {
-      document.getElementById('weatherGrid').innerHTML = data;
+      document.getElementById('weatherGrid').innerHTML = data
+      var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 4,
+        spaceBetween: 30,
+        freeMode: true,
+      });
     }
   });
 }

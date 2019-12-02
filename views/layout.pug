@@ -5,10 +5,11 @@ html
     meta(charset='utf-8')
     title= title
     meta(name='description' content='Consulta la información meteorológica de forma rápida y sencilla')
-    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='viewport' content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1')
     
     // CSS
     link(rel='stylesheet', href='/common/css/style.css')
+    link(rel='stylesheet', href='/lib/swiper/css/swiper.min.css')
     link(rel='stylesheet', href='/lib/bootstrap/css/bootstrap.min.css')
     link(rel='stylesheet', href='/lib/fontawesome/css/all.min.css')
     
@@ -20,9 +21,10 @@ html
     block content
  
    
-    // JavaScript      
+    // JavaScript
+    script(type='text/javascript', src='/lib/swiper/js/swiper.min.js')
+        
     script(type='text/javascript', src='/lib/jquery/js/jquery.min.js')
-    script(type='text/javascript', src='/lib/popper/js/popper.min.js')
     script(type='text/javascript', src='/lib/bootstrap/js/bootstrap.min.js')
     script(type='text/javascript', src='/common/js/location.js')
     script.
