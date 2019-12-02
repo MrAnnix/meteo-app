@@ -13,31 +13,41 @@ block content
     if location
       p Está en #{location}
       
-    if city
-      p Está en #{city}
-      
-    div(class='row')
-      div(class='col')
+    p(id='realPosition')
+	  
+    div(class='meteo-grid-container')
+      div(class='meteo-icono')
         img(src='/common/img/weather/sun.svg')
-      div(class='col')
+      div(class='meteo-temperatura')
+        p 8
+      div(class='meteo-minMax')
+        p 1/10
+      div(class='meteo-humedad')
+        p 80%
+      div(class='meteo-direccionViento')
+        p NE
+      div(class='meteo-velocidadViento')
+        p 20km/h
+      div(class='meteo-indiceUV')
+        p UV
+      div(class='meteo-masInfo')
+        p +info
 
     div(class='row')
       div(class='col')
         p Predicción de los próximos 7 dias
 
-    div(class="table")
-     table(id="dtHorizontalExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%")
-      tr
-       td 
-        img(src='/common/img/weather/sun.svg')
-       td 
-        img(src='/common/img/weather/rain.svg')
-       td 
+    div(class='prev-grid-container')
+      div(class='meteo-day1')
         img(src='/common/img/weather/comet.svg')
-       td Edinburgh
-       td 61
-       td 2011/04/25
-       td $320,800
-       td 5421
-       td t.nixon@datatables.net
+      div(class='meteo-day2')
+        img(src='/common/img/weather/rain.svg')
+      div(class='meteo-day3')
+        img(src='/common/img/weather/night.svg')
+      div(class='meteo-day4')
+        img(src='/common/img/weather/storm.svg')
+      div(class='meteo-day5')
+        img(src='/common/img/weather/snowflake.svg')
+      div(class='meteo-day6')
+        img(src='/common/img/weather/wind.svg')
     

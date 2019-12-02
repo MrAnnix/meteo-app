@@ -26,21 +26,60 @@ a {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-template-areas: "icono icono icono icono temperatura temperatura minMax minMax" "icono icono icono icono temperatura temperatura humedad humedad" "icono icono icono icono direccionViento direccionViento velocidadViento velocidadViento" "icono icono icono icono indiceUV indiceUV masInfo masInfo";
 }
 
-.meteo-icono { grid-area: meteo-icono; }
+.meteo-icono { 
+grid-column:1/5;
+grid-row: 1/span4; }
 
-.meteo-temperatura { grid-area: meteo-temperatura; }
+.meteo-temperatura { 
+grid-column:5/7;
+grid-row: 1/span2; }
 
-.meteo-minMax { grid-area: meteo-minMax; }
+.meteo-minMax {
+grid-column:7/9;
+grid-row: 1/span1; }
 
-.meteo-humedad { grid-area: meteo-humedad; }
+.meteo-humedad {
+grid-column:7/9;
+grid-row: 2/span1; }
 
-.meteo-direccionViento { grid-area: meteo-direccionViento; }
+.meteo-direccionViento { 
+grid-column:5/7;
+grid-row: 3/span1; }
 
-.meteo-velocidadViento { grid-area: meteo-velocidadViento; }
+.meteo-velocidadViento { 
+grid-column:7/9;
+grid-row: 3/span1; }
 
-.meteo-indiceUV { grid-area: meteo-indiceUV; }
+.meteo-indiceUV {
+grid-column:5/7;
+grid-row: 4/span1; }
 
-.meteo-masInfo { grid-area: meteo-masInfo; }
+.meteo-masInfo { 
+grid-column:7/9;
+grid-row: 4/span1; }
+
+.prev-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.meteo-day1 { 
+grid-column:1/span1; }
+
+.meteo-day2 { 
+grid-column:2/span1; }
+
+.meteo-day3 {
+grid-column:3/span1; }
+
+.meteo-day4 {
+grid-column:4/span1; }
+
+.meteo-day5 { 
+grid-column:5/span1; }
+
+.meteo-day6 { 
+grid-column:6/span1; }
