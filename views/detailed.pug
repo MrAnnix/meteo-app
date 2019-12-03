@@ -1,24 +1,21 @@
+div(class='row')
+  div(class='col border border-secondary rounded')
+    h2 El tiempo hoy
+
 div(class='meteo-grid-container')
   div(class='meteo-icono')
     img(src='/common/img/weather/sun.svg' style='width:100%; height:100%;')
-  div(class='meteo-temperatura')
-    div(class='text-center mx-auto my-5')
-      font(size=7) -20º
-  div(class='meteo-minMax')
-    div(class='text-center mx-auto my-3')
-      font(size=4) 1º/10º
-  div(class='meteo-humedad')
-    div(class='text-center mx-auto my-3')
-      font(size=4) 80%
-  div(class='meteo-direccionViento')
-    div(class='text-center mx-auto my-3')
-      font(size=4) NE
-  div(class='meteo-velocidadViento')
-    div(class='text-center mx-auto my-3')
-      font(size=4) 20km/h
-  div(class='meteo-indiceUV')
-    div(class='text-center mx-auto my-3')
-      font(size=4) UV
-  div(class='meteo-masInfo')
-    div(class='text-center mx-auto my-3')
-      font(size=4) +info
+  div(class='meteo-temperatura text-center mx-auto my-auto')
+    p -20º
+  div(class='meteo-minMax text-center mx-auto my-3')
+    p 1º/10º
+  div(class='meteo-humedad text-center mx-auto my-3')
+    p 80%
+  div(class='meteo-direccionViento text-center mx-auto my-3')
+    p NE
+  div(class='meteo-velocidadViento text-center mx-auto my-3')
+    p 20km/h
+  div(class='meteo-indiceUV text-center mx-auto my-3')
+    p UV
+  div(class='meteo-masInfo text-center mx-auto my-3')
+    p +info
