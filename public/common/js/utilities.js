@@ -17,7 +17,7 @@ function initializeSwiper() {
 }
 
 function getDetailedWeatherByLocation(loc) {
-  let url = '/detailed';
+  let url = '/weather';
   let data = {
     location: loc
   };
@@ -33,7 +33,7 @@ function getDetailedWeatherByLocation(loc) {
 }
 
 function getDetailedWeatherByCoordinates(lat, lng) {
-  var url = '/detailed';
+  var url = '/weather';
   var data = {
     latitude: lat,
     longitude: lng
