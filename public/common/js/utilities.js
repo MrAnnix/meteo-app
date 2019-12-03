@@ -27,7 +27,6 @@ function getDetailedWeatherByLocation(loc) {
     data, 
     function(o){
       document.getElementById('weatherGrid').innerHTML = o;
-      initializeSwiper();
     }
   );
 }
@@ -44,6 +43,38 @@ function getDetailedWeatherByCoordinates(lat, lng) {
     data, 
     function(o){
       document.getElementById('weatherGrid').innerHTML = o;
+    }
+  );
+}
+
+function getPrevisionWeatherByLocation(loc) {
+  let url = '/prevision';
+  let data = {
+    location: loc
+  };
+
+  getDataByURL(
+    url,
+    data, 
+    function(o){
+      document.getElementById('previsionBlock').innerHTML = o;
+      initializeSwiper();
+    }
+  );
+}
+
+function getPrevisionWeatherByCoordinates(lat, lng) {
+  var url = '/prevision';
+  var data = {
+    latitude: lat,
+    longitude: lng
+  };
+
+  getDataByURL(
+    url,
+    data, 
+    function(o){
+      document.getElementById('previsionBlock').innerHTML = o;
       initializeSwiper();
     }
   );
@@ -59,10 +90,12 @@ function getFullWeather() {
 
   if (location) {
     getDetailedWeatherByLocation(location);
+    getPrevisionWeatherByLocation(location)
   } else if ("geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition(
       function success(position) {
         getDetailedWeatherByCoordinates(position.coords.latitude, position.coords.longitude);
+        getPrevisionWeatherByCoordinates(position.coords.latitude, position.coords.longitude);
       },
       function error(error_message) {
         console.warn('ERROR(' + err.code + '): ' + err.message);
