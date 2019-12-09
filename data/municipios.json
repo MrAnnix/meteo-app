@@ -1,5 +1,5 @@
 {
-    "ARABA / ÁLAVA": {
+    "ARABA/ÁLAVA": {
         "Agurain/Salvatierra": "01051",
         "Alegría-Dulantzi": "01001",
         "Amurrio": "01002",
@@ -141,7 +141,7 @@
         "Viveros": "02085",
         "Yeste": "02086"
     },
-    "ALICANTE / ALACANT": {
+    "ALICANTE/ALACANT": {
         "Agost": "03002",
         "Agres": "03003",
         "Aigües": "03004",
@@ -806,7 +806,7 @@
         "Zarza, La": "06162",
         "Zarza-Capilla": "06161"
     },
-    "BALEARS, ILLES / BALEARES, ISLAS": {
+    "BALEARS, ILLES/BALEARES, ISLAS": {
         "Alaior": "07002",
         "Alaró": "07001",
         "Alcúdia": "07003",
@@ -1833,7 +1833,7 @@
         "Villamartín": "11041",
         "Zahara": "11042"
     },
-    "CASTELLÓN / CASTELLÓ": {
+    "CASTELLÓN/CASTELLÓ": {
         "Aín": "12002",
         "Albocàsser": "12003",
         "Alcalà de Xivert": "12004",
@@ -2153,7 +2153,7 @@
         "Viso, El": "14074",
         "Zuheros": "14075"
     },
-    "CORUÑA, A / CORUÑA, LA": {
+    "CORUÑA, A/CORUÑA, LA": {
         "Abegondo": "15001",
         "Ames": "15002",
         "Aranga": "15003",
@@ -2488,7 +2488,7 @@
         "Zarza de Tajo": "16279",
         "Zarzuela": "16280"
     },
-    "GIRONA / GERONA": {
+    "GIRONA/GERONA": {
         "Agullana": "17001",
         "Aiguaviva": "17002",
         "Albanyà": "17003",
@@ -3177,7 +3177,7 @@
         "Zarzuela de Jadraque": "19334",
         "Zorita de los Canes": "19335"
     },
-    "GIPUZKOA / GUIPÚZCOA": {
+    "GIPUZKOA/GUIPÚZCOA": {
         "Abaltzisketa": "20001",
         "Aduna": "20002",
         "Aia": "20016",
@@ -3865,7 +3865,7 @@
         "Villazanzo de Valderaduey": "24229",
         "Zotes del Páramo": "24230"
     },
-    "LLEIDA / LÉRIDA": {
+    "LLEIDA/LÉRIDA": {
         "Abella de la Conca": "25001",
         "Àger": "25002",
         "Agramunt": "25003",
@@ -4676,7 +4676,7 @@
         "Villanueva del Río Segura": "30042",
         "Yecla": "30043"
     },
-    "NAFARROA / NAVARRA": {
+    "NAFARROA/NAVARRA": {
         "Abáigar": "31001",
         "Abárzuza/Abartzuza": "31002",
         "Abaurregaina/Abaurrea Alta": "31003",
@@ -4950,7 +4950,7 @@
         "Zugarramurdi": "31264",
         "Zúñiga": "31265"
     },
-    "ORENSE / OURENSE": {
+    "ORENSE/OURENSE": {
         "Allariz": "32001",
         "Amoeiro": "32002",
         "Arnoia, A": "32003",
@@ -7074,7 +7074,7 @@
         "Yunclillos": "45204",
         "Yuncos": "45205"
     },
-    "VALÈNCIA / VALENCIA": {
+    "VALÈNCIA/VALENCIA": {
         "Ademuz": "46001",
         "Ador": "46002",
         "Agullent": "46004",
@@ -7569,7 +7569,7 @@
         "Zaratán": "47231",
         "Zarza, La": "47232"
     },
-    "BIZKAIA / VIZCAYA": {
+    "BIZKAIA/VIZCAYA": {
         "Abadiño": "48001",
         "Abanto y Ciérvana-Abanto Zierbena": "48002",
         "Ajangiz": "48911",
