@@ -1,0 +1,3 @@
+https://nominatim.openstreetmap.org/search?q=la+manga&addressdetails=1&countrycodes=es&format=json&email=compdistuc3m@gmail.com
+
+https://nominatim.openstreetmap.org/details.php?place_id=198575568&addressdetails=1&linkedplaces=1&format=json&email=compdistuc3m@gmail.com
