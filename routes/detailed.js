@@ -16,11 +16,13 @@ router.get('/', function(req, res, next) {
     if(err){
       res.render('detailed', { title: 'meteo', error: 'An error has occurred'});
     } else {
-      let place = JSON.parse(body)
-      if(place.address.adminName3 == null){
+      let place = JSON.parse(body)     
+      try {
+        res.render('detailed', { title: 'meteo', location: place.address.adminName3, longitude, latitude });
+      }
+      catch (e) {
+        console.log(e);
         res.render('detailed', { title: 'meteo', error: 'An error has occurred'});
-      } else {
-        res.render('detailed', { title: 'meteo', location: place.address.adminName3, longitude, latitude });  
       }
     }
   });
