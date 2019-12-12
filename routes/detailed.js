@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
       res.render('detailed', { title: 'meteo', error: 'An error has occurred'});
     } else {
       let place = JSON.parse(body)
-      if(place.address.adminName3 == undefined){
+      if(place.address.adminName3 == null){
         res.render('detailed', { title: 'meteo', error: 'An error has occurred'});
       } else {
         res.render('detailed', { title: 'meteo', location: place.address.adminName3, longitude, latitude });  
