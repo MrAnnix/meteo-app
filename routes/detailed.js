@@ -4,6 +4,9 @@ var router = express.Router();
 
 var APIKeys = require('../data/APIKeys.json');
 
+var municipio;
+var provincia;
+
 /* GET detailed block. */
 router.get('/', function(req, res, next) {
   let location = req.query.location;
@@ -17,9 +20,11 @@ router.get('/', function(req, res, next) {
       if(err){
         res.render('detailed', { title: 'meteo', error: 'An error has occurred'});
       } else {
-        let place = JSON.parse(body)     
+        let place = JSON.parse(body)  			
         try {
-          res.render('detailed', { title: 'meteo', location: place.address.adminName3, longitude, latitude });
+          municipio = place.address.adminName3;
+		  provincia = place.address.adminName2;
+          res.render('detailed', { title: 'meteo', location: municipio + ',' + provincia, longitude, latitude });
         }
         catch (e) {
           console.log(e);

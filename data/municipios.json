@@ -88,7 +88,7 @@
     "Viveros": "02085",
     "Yeste": "02086"
   },
-  "ALICANTE/ALACANT": {
+  "Alicante": {
     "Agost": "03002",
     "Agres": "03003",
     "Aigües": "03004",
@@ -96,12 +96,12 @@
     "Alcalalí": "03006",
     "Alcocer de Planes": "03007",
     "Alcoleja": "03008",
-    "Alcoy/Alcoi": "03009",
+    "Alcoy": "03009",
     "Alfafara": "03010",
     "Alfàs del Pi, l'": "03011",
     "Algorfa": "03012",
     "Algueña": "03013",
-    "Alicante/Alacant": "03014",
+    "Alicante": "03014",
     "Almoradí": "03015",
     "Almudaina": "03016",
     "Alqueria d'Asnar, l'": "03017",
@@ -138,7 +138,7 @@
     "Callosa d'en Sarrià": "03048",
     "Callosa de Segura": "03049",
     "Calp": "03047",
-    "Campello, el": "03050",
+    "El Campello": "03050",
     "Campo de Mirra/Camp de Mirra, el": "03051",
     "Castalla": "03053",
     "Castell de Castells": "03054",
@@ -153,7 +153,7 @@
     "Daya Vieja": "03062",
     "Dolores": "03064",
     "Dénia": "03063",
-    "Elche/Elx": "03065",
+    "Elche": "03065",
     "Elda": "03066",
     "Facheca": "03067",
     "Famorca": "03068",
@@ -231,7 +231,7 @@
     "Villena": "03140",
     "Xaló": "03081"
   },
-  "ALMERÍA": {
+  "Almeria": {
     "Abla": "04001",
     "Abrucena": "04002",
     "Adra": "04003",
@@ -336,7 +336,7 @@
     "Zurgena": "04103",
     "Íllar": "04054"
   },
-  "ARABA/ÁLAVA": {
+  "Araba / Álava": {
     "Agurain/Salvatierra": "01051",
     "Alegría-Dulantzi": "01001",
     "Amurrio": "01002",
@@ -389,7 +389,7 @@
     "Zigoitia": "01018",
     "Zuia": "01063"
   },
-  "ASTURIAS": {
+  "Asturias": {
     "Allande": "33001",
     "Aller": "33002",
     "Amieva": "33003",
@@ -469,7 +469,7 @@
     "Villayón": "33077",
     "Yernes y Tameza": "33078"
   },
-  "BADAJOZ": {
+  "Badajoz": {
     "Acedera": "06001",
     "Aceuchal": "06002",
     "Ahillones": "06003",
@@ -636,7 +636,7 @@
     "Zarza, La": "06162",
     "Zarza-Capilla": "06161"
   },
-  "BALEARS, ILLES/BALEARES, ISLAS": {
+  "Balearic Islands": {
     "Alaior": "07002",
     "Alaró": "07001",
     "Alcúdia": "07003",
@@ -705,7 +705,7 @@
     "Valldemossa": "07063",
     "Vilafranca de Bonany": "07065"
   },
-  "BARCELONA": {
+  "Barcelona": {
     "Abrera": "08001",
     "Aguilar de Segarra": "08002",
     "Aiguafreda": "08014",
@@ -1018,7 +1018,7 @@
     "Òdena": "08143",
     "Òrrius": "08153"
   },
-  "BIZKAIA/VIZCAYA": {
+  "Biscay": {
     "Abadiño": "48001",
     "Abanto y Ciérvana-Abanto Zierbena": "48002",
     "Ajangiz": "48911",
@@ -1505,7 +1505,7 @@
     "Zuñeda": "09485",
     "Úrbel del Castillo": "09398"
   },
-  "CANTABRIA": {
+  "Cantabria": {
     "Alfoz de Lloredo": "39001",
     "Ampuero": "39002",
     "Anievas": "39003",
@@ -1609,7 +1609,7 @@
     "Villafufre": "39100",
     "Voto": "39102"
   },
-  "CASTELLÓN/CASTELLÓ": {
+  "Castellon": {
     "Albocàsser": "12003",
     "Alcalà de Xivert": "12004",
     "Alcora, l'": "12005",
@@ -1746,7 +1746,7 @@
     "Zorita del Maestrazgo": "12141",
     "Zucaina": "12142"
   },
-  "CEUTA": {
+  "Ceuta": {
     "Ceuta": "51001"
   },
   "CIUDAD REAL": {
@@ -1853,7 +1853,7 @@
     "Villarta de San Juan": "13097",
     "Viso del Marqués": "13098"
   },
-  "CORUÑA, A/CORUÑA, LA": {
+  "A Coruña": {
     "Abegondo": "15001",
     "Ames": "15002",
     "Aranga": "15003",
@@ -2188,7 +2188,7 @@
     "Zarza de Tajo": "16279",
     "Zarzuela": "16280"
   },
-  "CÁCERES": {
+  "Caceres": {
     "Abadía": "10001",
     "Abertura": "10002",
     "Acebo": "10003",
@@ -2413,7 +2413,7 @@
     "Zarza la Mayor": "10218",
     "Zorita": "10219"
   },
-  "CÁDIZ": {
+  "Cadiz": {
     "Alcalá de los Gazules": "11001",
     "Alcalá del Valle": "11002",
     "Algar": "11003",
@@ -2460,7 +2460,7 @@
     "Villamartín": "11041",
     "Zahara": "11042"
   },
-  "CÓRDOBA": {
+  "Cordoba": {
     "Adamuz": "14001",
     "Aguilar de la Frontera": "14002",
     "Alcaracejos": "14003",
@@ -2539,7 +2539,7 @@
     "Viso, El": "14074",
     "Zuheros": "14075"
   },
-  "GIPUZKOA/GUIPÚZCOA": {
+  "Gipuzkoa": {
     "Abaltzisketa": "20001",
     "Aduna": "20002",
     "Aia": "20016",
@@ -2570,7 +2570,7 @@
     "Berrobi": "20023",
     "Bidania-Goiatz": "20024",
     "Deba": "20029",
-    "Donostia/San Sebastián": "20069",
+    "San Sebastián": "20069",
     "Eibar": "20030",
     "Elduain": "20031",
     "Elgeta": "20033",
@@ -2629,7 +2629,7 @@
     "Zumaia": "20081",
     "Zumarraga": "20080"
   },
-  "GIRONA/GERONA": {
+  "Girona": {
     "Agullana": "17001",
     "Aiguaviva": "17002",
     "Albanyà": "17003",
@@ -2852,7 +2852,7 @@
     "Vilobí d'Onyar": "17233",
     "Vilopriu": "17232"
   },
-  "GRANADA": {
+  "Granada": {
     "Agrón": "18001",
     "Alamedilla": "18002",
     "Albolote": "18003",
@@ -3028,7 +3028,7 @@
     "Ítrabo": "18103",
     "Órgiva": "18147"
   },
-  "GUADALAJARA": {
+  "Guadalajara": {
     "Ablanque": "19002",
     "Abánades": "19001",
     "Adobes": "19003",
@@ -3318,7 +3318,7 @@
     "Zarzuela de Jadraque": "19334",
     "Zorita de los Canes": "19335"
   },
-  "HUELVA": {
+  "Huelva": {
     "Aljaraque": "21002",
     "Almendro, El": "21003",
     "Almonaster la Real": "21004",
@@ -3400,7 +3400,7 @@
     "Zarza-Perrunal, La": "21902",
     "Zufre": "21079"
   },
-  "HUESCA": {
+  "Huesca": {
     "Abiego": "22001",
     "Abizanda": "22002",
     "Adahuesca": "22003",
@@ -3604,7 +3604,7 @@
     "Yésero": "22253",
     "Zaidín": "22254"
   },
-  "JAÉN": {
+  "Jaen": {
     "Albanchez de Mágina": "23001",
     "Alcalá la Real": "23002",
     "Alcaudete": "23003",
@@ -3703,7 +3703,7 @@
     "Villatorres": "23903",
     "Úbeda": "23092"
   },
-  "LEÓN": {
+  "Leon": {
     "Acebedo": "24001",
     "Algadefe": "24002",
     "Alija del Infantado": "24003",
@@ -3916,7 +3916,7 @@
     "Villazanzo de Valderaduey": "24229",
     "Zotes del Páramo": "24230"
   },
-  "LLEIDA/LÉRIDA": {
+  "Lleida": {
     "Abella de la Conca": "25001",
     "Agramunt": "25003",
     "Aitona": "25038",
@@ -4149,7 +4149,7 @@
     "Vinaixa": "25255",
     "Àger": "25002"
   },
-  "LUGO": {
+  "Lugo": {
     "Abadín": "27001",
     "Alfoz": "27002",
     "Antas de Ulla": "27003",
@@ -4218,7 +4218,7 @@
     "Xermade": "27021",
     "Xove": "27025"
   },
-  "MADRID": {
+  "Madrid": {
     "Acebeda, La": "28001",
     "Ajalvir": "28002",
     "Alameda del Valle": "28003",
@@ -4399,10 +4399,10 @@
     "Zarzalejo": "28183",
     "Álamo, El": "28004"
   },
-  "MELILLA": {
+  "Melilla": {
     "Melilla": "52001"
   },
-  "MURCIA": {
+  "Murcia": {
     "Abanilla": "30001",
     "Abarán": "30002",
     "Albudeite": "30004",
@@ -4449,7 +4449,7 @@
     "Yecla": "30043",
     "Águilas": "30003"
   },
-  "MÁLAGA": {
+  "Malaga": {
     "Alameda": "29001",
     "Alcaucín": "29002",
     "Alfarnate": "29003",
@@ -4554,7 +4554,7 @@
     "Álora": "29012",
     "Árchez": "29016"
   },
-  "NAFARROA/NAVARRA": {
+  "Navarre": {
     "Abaurregaina/Abaurrea Alta": "31003",
     "Abaurrepea/Abaurrea Baja": "31004",
     "Aberin": "31005",
@@ -4751,7 +4751,7 @@
     "Ochagavía/Otsagabia": "31185",
     "Oco": "31184",
     "Odieta": "31186",
-    "Oiz": "31187",
+    "Oitz": "31187",
     "Olaibar": "31188",
     "Olazti/Olazagutía": "31189",
     "Olejua": "31190",
@@ -5115,7 +5115,7 @@
     "Villota del Páramo": "34245",
     "Villovieco": "34246"
   },
-  "PALMAS, LAS": {
+  "Las Palmas": {
     "Agaete": "35001",
     "Agüimes": "35002",
     "Aldea de San Nicolás, La": "35020",
@@ -5131,7 +5131,7 @@
     "Mogán": "35012",
     "Moya": "35013",
     "Oliva, La": "35014",
-    "Palmas de Gran Canaria, Las": "35016",
+    "Las Palmas": "35016",
     "Puerto del Rosario": "35017",
     "Pájara": "35015",
     "San Bartolomé": "35018",
@@ -5151,7 +5151,7 @@
     "Vega de San Mateo": "35033",
     "Yaiza": "35034"
   },
-  "PONTEVEDRA": {
+  "Pontevedra": {
     "Agolada": "36020",
     "Arbo": "36001",
     "Baiona": "36003",
@@ -5214,7 +5214,7 @@
     "Vilagarcía de Arousa": "36060",
     "Vilanova de Arousa": "36061"
   },
-  "RIOJA, LA": {
+  "La Rioja": {
     "Agoncillo": "26002",
     "Aguilar del Río Alhama": "26003",
     "Ajamil de Cameros": "26004",
@@ -5754,7 +5754,7 @@
     "Zorita de la Frontera": "37382",
     "Éjeme": "37118"
   },
-  "SANTA CRUZ DE TENERIFE": {
+  "Santa Cruz de Tenerife": {
     "Adeje": "38001",
     "Agulo": "38002",
     "Alajeró": "38003",
@@ -5810,7 +5810,7 @@
     "Vilaflor de Chasna": "38052",
     "Villa de Mazo": "38053"
   },
-  "SEGOVIA": {
+  "Segovia": {
     "Abades": "40001",
     "Adrada de Pirón": "40002",
     "Adrados": "40003",
@@ -6021,7 +6021,7 @@
     "Zarzuela del Monte": "40233",
     "Zarzuela del Pinar": "40234"
   },
-  "SEVILLA": {
+  "Seville": {
     "Aguadulce": "41001",
     "Alanís": "41002",
     "Albaida del Aljarafe": "41003",
@@ -6115,7 +6115,7 @@
     "Sanlúcar la Mayor": "41087",
     "Santiponce": "41089",
     "Saucejo, El": "41090",
-    "Sevilla": "41091",
+    "Seville": "41091",
     "Tocina": "41092",
     "Tomares": "41093",
     "Umbrete": "41094",
@@ -6129,7 +6129,7 @@
     "Viso del Alcor, El": "41102",
     "Écija": "41039"
   },
-  "SORIA": {
+  "Soria": {
     "Abejar": "42001",
     "Adradas": "42003",
     "Alconaba": "42006",
@@ -6314,7 +6314,7 @@
     "Ágreda": "42004",
     "Ólvega": "42134"
   },
-  "TARRAGONA": {
+  "Tarragona": {
     "Aiguamúrcia": "43001",
     "Albinyana": "43002",
     "Albiol, L'": "43003",
@@ -6500,7 +6500,7 @@
     "Vinyols i els Arcs": "43178",
     "Xerta": "43052"
   },
-  "TERUEL": {
+  "Teruel": {
     "Ababuj": "44001",
     "Abejuela": "44002",
     "Aguatón": "44003",
@@ -7171,7 +7171,7 @@
     "Zarza, La": "47232",
     "Íscar": "47075"
   },
-  "VALÈNCIA/VALENCIA": {
+  "Valencia": {
     "Ademuz": "46001",
     "Ador": "46002",
     "Agullent": "46004",
@@ -7689,7 +7689,7 @@
     "Viñas": "49273",
     "Zamora": "49275"
   },
-  "ZARAGOZA": {
+  "Saragossa": {
     "Abanto": "50001",
     "Acered": "50002",
     "Aguarón": "50004",
