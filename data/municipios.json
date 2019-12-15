@@ -1,5 +1,5 @@
 {
-  "ALBACETE": {
+  "Albacete": {
     "Abengibre": "02001",
     "Alatoz": "02002",
     "Albacete": "02003",
@@ -231,7 +231,7 @@
     "Villena": "03140",
     "Xaló": "03081"
   },
-  "Almeria": {
+  "Almería": {
     "Abla": "04001",
     "Abrucena": "04002",
     "Adra": "04003",
@@ -1132,7 +1132,7 @@
     "Zierbena": "48913",
     "Ziortza-Bolibar": "48915"
   },
-  "BURGOS": {
+  "Burgos": {
     "Abajas": "09001",
     "Adrada de Haza": "09003",
     "Aguas Cándidas": "09006",
@@ -1749,7 +1749,7 @@
   "Ceuta": {
     "Ceuta": "51001"
   },
-  "CIUDAD REAL": {
+  "Ciudad Real": {
     "Abenójar": "13001",
     "Agudo": "13002",
     "Alamillo": "13003",
@@ -1948,7 +1948,7 @@
     "Vimianzo": "15092",
     "Zas": "15093"
   },
-  "CUENCA": {
+  "Cuenca": {
     "Abia de la Obispalía": "16001",
     "Acebrón, El": "16002",
     "Alarcón": "16003",
@@ -4554,7 +4554,7 @@
     "Álora": "29012",
     "Árchez": "29016"
   },
-  "Navarre": {
+  "Navarra": {
     "Abaurregaina/Abaurrea Alta": "31003",
     "Abaurrepea/Abaurrea Baja": "31004",
     "Aberin": "31005",
@@ -4828,7 +4828,7 @@
     "Zugarramurdi": "31264",
     "Zúñiga": "31265"
   },
-  "ORENSE/OURENSE": {
+  "Ourense": {
     "Allariz": "32001",
     "Amoeiro": "32002",
     "Arnoia, A": "32003",
@@ -4922,7 +4922,7 @@
     "Xunqueira de Ambía": "32036",
     "Xunqueira de Espadanedo": "32037"
   },
-  "PALENCIA": {
+  "Palencia": {
     "Abarca de Campos": "34001",
     "Abia de las Torres": "34003",
     "Aguilar de Campoo": "34004",
@@ -5390,7 +5390,7 @@
     "Zorraquín": "26183",
     "Ábalos": "26001"
   },
-  "SALAMANCA": {
+  "Salamanca": {
     "Abusejo": "37001",
     "Agallas": "37002",
     "Ahigal de Villarino": "37004",
@@ -6021,7 +6021,7 @@
     "Zarzuela del Monte": "40233",
     "Zarzuela del Pinar": "40234"
   },
-  "Seville": {
+  "Sevilla": {
     "Aguadulce": "41001",
     "Alanís": "41002",
     "Albaida del Aljarafe": "41003",
@@ -6115,7 +6115,7 @@
     "Sanlúcar la Mayor": "41087",
     "Santiponce": "41089",
     "Saucejo, El": "41090",
-    "Seville": "41091",
+    "Sevilla": "41091",
     "Tocina": "41092",
     "Tomares": "41093",
     "Umbrete": "41094",
@@ -6738,7 +6738,7 @@
     "Vivel del Río Martín": "44267",
     "Zoma, La": "44268"
   },
-  "TOLEDO": {
+  "Toledo": {
     "Ajofrín": "45001",
     "Alameda de la Sagra": "45002",
     "Albarreal de Tajo": "45003",
@@ -6944,7 +6944,7 @@
     "Yuncos": "45205",
     "Yébenes, Los": "45200"
   },
-  "VALLADOLID": {
+  "Valladolid": {
     "Adalia": "47001",
     "Aguasal": "47002",
     "Aguilar de Campos": "47003",
@@ -7439,7 +7439,7 @@
     "Zarra": "46263",
     "Ènova, l'": "46119"
   },
-  "ZAMORA": {
+  "Zamora": {
     "Abezames": "49002",
     "Alcañices": "49003",
     "Alcubilla de Nogales": "49004",
@@ -7689,7 +7689,7 @@
     "Viñas": "49273",
     "Zamora": "49275"
   },
-  "Saragossa": {
+  "Zaragoza": {
     "Abanto": "50001",
     "Acered": "50002",
     "Aguarón": "50004",
@@ -7984,7 +7984,7 @@
     "Zuera": "50298",
     "Épila": "50099"
   },
-  "ÁVILA": {
+  "Ávila": {
     "Adanero": "05001",
     "Adrada, La": "05002",
     "Albornos": "05005",
