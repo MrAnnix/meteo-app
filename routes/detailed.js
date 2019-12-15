@@ -10,7 +10,8 @@ function getCoordinatesFromQuery(error, response, body, callback){
   if(error){
     throw error;
   } else {
-    var place = JSON.parse(body)  			
+    var place = JSON.parse(body)  
+    if(place.candidates[0] == null) throw 'Coordinates could not be solved'
     var lat = place.candidates[0].geometry.location.lat;
     var lng = place.candidates[0].geometry.location.lng;
     callback(lat, lng);
@@ -62,8 +63,6 @@ router.get('/', function(req, res, next) {
                 if (municipio != undefined) res.render('detailed', { title: 'meteo', location: municipio + ', ' + provincia});
               });
             });
-          } else {
-            throw 'Cannot get '+query+ ' asociated place';
           }
         });  
       });
