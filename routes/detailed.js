@@ -12,7 +12,7 @@ function getCoordinatesFromQuery(error, response, body, callback){
   } else {
     var place = JSON.parse(body)  
     console.log(place);
-    if(place.candidates[0] == null) throw 'Coordinates could not be solved';
+    if(place.candidates[0] == undefined) throw 'Coordinates could not be solved';
     var lat = place.candidates[0].geometry.location.lat;
     var lng = place.candidates[0].geometry.location.lng;
     callback(lat, lng);
