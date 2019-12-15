@@ -1,5 +1,6 @@
 {
   "aemet_api_key": "YOUR_API_KEY_HERE",
+  "google_places_api_key": "YOUR_API_KEY_HERE",
   "nominatim_api_key": "YOUR_API_KEY_HERE",
   "geonames_api_key": "YOUR_API_KEY_HERE"
 }
