@@ -29,13 +29,14 @@ function getLocalityFromCoordinates(error, response, body, callback){
   if (error == null && place.results != undefined){
     var placeDetails = place.results[0].address_components;
     
-    var municipio = placeDetails.find(e => e.types[0] === "locality");
-    municipio = municipio.long_name;
-    
-    var provincia = placeDetails.find(e => e.types[0] === "administrative_area_level_2");
-    provincia = provincia.long_name;
-    
-    callback(error, municipio, provincia);
+    var placeDetails = place.results.find(function(a){
+      var muni = a.address_components.find(e => e.types[0] === "locality");
+      var prov = a.address_components.find(e => e.types[0] === "administrative_area_level_2");
+      if(muni && prov){
+        callback(error, muni.long_name, prov.long_name);
+        return 'found';
+      }
+    });
   } else {
     callback(error, null, null);
   }
