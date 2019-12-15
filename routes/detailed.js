@@ -11,7 +11,7 @@ function getCoordinatesFromQuery(error, response, body, callback){
     throw error;
   } else {
     var place = JSON.parse(body)  
-    console.log(place.candidates[0]);
+    console.log(place);
     if(place.candidates[0] == null) throw 'Coordinates could not be solved';
     var lat = place.candidates[0].geometry.location.lat;
     var lng = place.candidates[0].geometry.location.lng;
