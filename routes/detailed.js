@@ -62,6 +62,8 @@ router.get('/', function(req, res, next) {
                 if (municipio != undefined) res.render('detailed', { title: 'meteo', location: municipio + ', ' + provincia});
               });
             });
+          } else {
+            throw 'Cannot get '+query+ ' asociated place';
           }
         });  
       });
