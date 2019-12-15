@@ -72,13 +72,13 @@ router.get('/', function(req, res, next) {
                 res.render('detailed', { title: 'meteo', location: municipio + ', ' + provincia});
               } else {
                 console.log(error);
-                res.render('detailed', { title: 'meteo', error: 'No pudo encontrarse el municipio ' + query});
+                res.render('detailed', { title: 'meteo', error: 'No pudo encontrarse ningún lugar llamado ' + query});
               }
             });
           });
         } else {
           console.log(error);
-          res.render('detailed', { title: 'meteo', error: 'No pudo encontrarse el municipio ' + query});
+          res.render('detailed', { title: 'meteo', error: 'No pudo encontrarse ningún lugar llamado ' + query});
         }
       });  
     });
