@@ -62,8 +62,8 @@ function getAemetDataURL(error, response, body, callback) {
 function getAemetWeatherData(error, response, body, callback) {
   var prevision;
   try {
-    prevision = JSON.parse(body);
     console.log(body);
+    prevision = JSON.parse(body);
     if (response.statusCode != 200)
       throw 'Aemet data not found or was expired';
   } catch (e) {
