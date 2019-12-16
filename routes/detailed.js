@@ -8,8 +8,7 @@ var municipiosData = require('../data/municipios.json');
 /* Get coordinates from query. */
 function getCoordinatesFromQuery(error, response, body, callback) {
   var place = JSON.parse(body)
-    var lat,
-  lng;
+  var lat, lng;
   if (error == null && place.candidates != undefined) {
     if (place.candidates[0] != undefined) {
       lat = place.candidates[0].geometry.location.lat;
