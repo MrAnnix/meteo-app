@@ -3,7 +3,7 @@ var express = require('express');
 var router = express.Router();
 
 var APIKeys = require('../data/APIKeys.json');
-
+var municipiosData = require('../data/municipios.json');
 
 /* Get coordinates from query. */
 function getCoordinatesFromQuery(error, response, body, callback){
@@ -43,6 +43,28 @@ function getLocalityFromCoordinates(error, response, body, callback){
 };
 
 
+/* Get aemet json for data */
+function getHtmlData(error, response, body, callback){
+  if(error){
+    throw error;
+  } else {
+    var data = JSON.parse(body)
+  }
+  callback(data);
+};
+
+
+/* Get aemet data */
+function getAemetData(error, response, body, callback){
+  if(error){
+    throw error;
+  } else {
+    var previsionData = JSON.parse(body)
+  }
+  callback(previsionData);
+};
+
+
 /* GET detailed block. */
 router.get('/', function(req, res, next) {
   let query = req.query.location;
@@ -71,10 +93,25 @@ router.get('/', function(req, res, next) {
             getLocalityFromCoordinates(error, response, body, function (error, municipio, provincia) {
               if (municipio != undefined) {
                 res.render('detailed', { title: 'meteo', location: municipio + ', ' + provincia});
-              } else {
+			  } else {
                 console.log(error);
                 res.render('detailed', { title: 'meteo', error: 'No pudo encontrarse ningún lugar llamado ' + query});
               }
+			  var municipioCode = municipiosData[provincia][municipio];
+              console.log(municipioCode);
+			  var aemetURL = 'https://opendata.aemet.es/opendata/api/prediccion/especifica/municipio/diaria/'+municipioCode+'/?format=json&api_key='+ APIKeys.aemet_api_key;
+			  console.log(aemetURL);
+              request(aemetURL, function (error, response, body) {
+                getHtmlData(error, response, body, function (data) {
+			      var aemetInfo = data.datos;
+				  console.log(aemetInfo);
+				  request(aemetInfo, function (error, response, body){
+				    getAemetData(error, response, body, function (previsionData){
+					  console.log(previsionData);
+					})
+				  })
+				})
+			  })
             });
           });
         } else {
