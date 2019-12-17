@@ -3,7 +3,7 @@ var express = require('express');
 var router = express.Router();
 
 var APIKeys = require('../data/APIKeys.json');
-var municipiosData = require('../data/municipios.json');
+var municipiosData = require('../data/newMunicipios.json');
 
 /* Get coordinates from query. */
 function getCoordinatesFromQuery(error, response, body, callback) {
