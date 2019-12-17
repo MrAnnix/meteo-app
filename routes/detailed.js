@@ -4,9 +4,6 @@ var router = express.Router();
 
 var utils = require('./utils');
 
-var APIKeys = require('../data/APIKeys.json');
-var municipiosData = require('../data/newMunicipios.json');
-
 
 /* GET detailed block. */
 router.get('/', function (req, res, next) {
