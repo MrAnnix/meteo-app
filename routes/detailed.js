@@ -46,14 +46,14 @@ router.get('/', function (req, res, next) {
           console.log(error);
           res.render('detailed', {
             title: 'meteo',
-            error: 'No pudo obtenerse la información del tiempo asociada a "' + query + '" revise su consulta'
+            error: 'No pudo obtenerse la información del tiempo asociada a "' + query.replaceAll('+', ' ') + '" revise su consulta'
           });
         });
       }).catch(function(error){
         console.log(error);
         res.render('detailed', {
           title: 'meteo',
-          error: 'No pudimos encontrar el lugar "' + query + '" revise su consulta'
+          error: 'No pudimos encontrar el lugar "' + query.replaceAll('+', ' ') + '" revise su consulta'
         });
       });
     }).catch(function(error){
@@ -61,7 +61,7 @@ router.get('/', function (req, res, next) {
       console.log(error);
       res.render('detailed', {
         title: 'meteo',
-        error: 'No pudimos encontrar el lugar "' + query + '"'
+        error: 'No pudimos encontrar el lugar "' + query.replaceAll('+', ' ') + '"'
       });
     });
   } else {

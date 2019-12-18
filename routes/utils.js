@@ -6,6 +6,12 @@ var APIKeys = require('../data/APIKeys.json');
 var municipiosData = require('../data/newMunicipios.json');
 
 
+String.prototype.replaceAll = function(str1, str2, ignore) 
+{
+  return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g,"\\$&"),(ignore?"gi":"g")),(typeof(str2)=="string")?str2.replace(/\$/g,"$$$$"):str2);
+}
+
+
 /**
  * Handle multiple requests at once
  * @param urls [array]
@@ -90,7 +96,6 @@ function getLocalityFromCoordinates(latitude, longitude) {
       var municipio, provincia;
       try {
         var place = JSON.parse(body);
-        var placeDetails = place.results[0].address_components;
         var placeDetails = place.results.find(function (a) {
           var muni = a.address_components.find(e => e.types[0] === "locality");
           var prov = a.address_components.find(e => e.types[0] === "administrative_area_level_2");
@@ -168,4 +173,4 @@ function getAemetDiaryData(municipio, provincia) {
 };
 
 
-module.exports = { getCoordinatesFromQuery, getLocalityFromCoordinates, getAemetDiaryData };
+module.exports = { getCoordinatesFromQuery, getLocalityFromCoordinates, getAemetDiaryData, String };
