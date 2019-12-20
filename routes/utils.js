@@ -52,6 +52,8 @@ function isInMunicipios(municipio, provincia) {
   try {
     var foo = municipiosData[provincia][municipio];
     return 1;
+  } catch (e) {
+    return undefined;
   }
 };
 
