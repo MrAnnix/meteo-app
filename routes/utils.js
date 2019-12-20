@@ -49,7 +49,11 @@ var __request = function (urls, callback) {
 
 /* Check locality in JSON */
 function isInMunicipios(municipio, provincia) {
-  return municipiosData[provincia][municipio];
+  var foo;
+  try {
+    foo = municipiosData[provincia][municipio];
+  } catch (e) { }
+  return foo;
 };
 
 
