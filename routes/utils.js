@@ -103,7 +103,10 @@ function getLocalityFromCoordinates(latitude, longitude) {
       try {
         var place = JSON.parse(body);
         var placeDetails = place.results.find(function (a) {
-          var muni = a.address_components.find(e => e.types[0] === "locality");
+          var muni = a.address_components.find(e => e.types[0] === "administrative_area_level_4");
+          if (!muni) {
+            muni = a.address_components.find(e => e.types[0] === "locality");
+          }
           var prov = a.address_components.find(e => e.types[0] === "administrative_area_level_2");
           if (muni && prov) {
             municipio = muni.long_name;
