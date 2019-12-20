@@ -47,18 +47,36 @@ var __request = function (urls, callback) {
 };
 
 
-/* Get coordinates from query. */
-function getCoordinatesFromQuery(query) {
-  var placesAPIURL = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=' + query + '&inputtype=textquery&fields=formatted_address,geometry/location&key=' + APIKeys.google_places_api_key;
-  const options = {
+/* Check locality in JSON */
+function isInMunicipios(municipio, provincia) {
+  try {
+    var foo = municipiosData[provincia][municipio];
+    return 1;
+  } catch {
+    return 0;
+  }
+};
+
+
+/* Create Google Places API request options */
+function createPlacesOptionsForRequest(url) {
+  return {
     method: 'GET',
-    url: placesAPIURL,
+    url: url,
     headers: {
       'Accept': 'application/json;charset=UTF-8',
       'Accept-Charset': 'UTF-8',
       'cache-control': 'no-cache'
     }
   };
+};
+
+
+/* Get coordinates from query. */
+function getCoordinatesFromQuery(query) {
+  var placesAPIURL = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=' + query + '&inputtype=textquery&fields=formatted_address,geometry/location&key=' + APIKeys.google_places_api_key;
+  const options = createPlacesOptionsForRequest(placesAPIURL);
+  
   return new Promise(function (resolve, reject) {
     request(options, function (error, response, body) {
       if (error)
@@ -80,15 +98,8 @@ function getCoordinatesFromQuery(query) {
 /* Get city name and provincia from coordinates */
 function getLocalityFromCoordinates(latitude, longitude) {
   var geocodingAPIURL = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&key=' + APIKeys.google_places_api_key;
-  const options = {
-    method: 'GET',
-    url: geocodingAPIURL,
-    headers: {
-      'Accept': 'application/json;charset=UTF-8',
-      'Accept-Charset': 'UTF-8',
-      'cache-control': 'no-cache'
-    }
-  };
+  const options = createPlacesOptionsForRequest(geocodingAPIURL);
+  
   return new Promise(function (resolve, reject) {
     request(options, function (error, response, body) {
       if (error)
@@ -102,7 +113,7 @@ function getLocalityFromCoordinates(latitude, longitude) {
           if (muni && prov) {
             municipio = muni.long_name;
             provincia = prov.long_name;
-            return 1;
+            return isInMunicipios(municipio, provincia);
           }
         });
         resolve({municipio: municipio, provincia: provincia});
@@ -114,22 +125,29 @@ function getLocalityFromCoordinates(latitude, longitude) {
 };
 
 
-/* Get aemet json for data */
-function getAemetDiaryData(municipio, provincia) {
-  var municipioCode = municipiosData[provincia][municipio]; // Get the code for that locality
-  var aemetAPIURL = 'https://opendata.aemet.es/opendata/api/prediccion/especifica/municipio/diaria/' + municipioCode;
-  const options = {
+/* Create Aemet request options */
+function createAemetOptionsForRequest(url) {
+  return {
     method: 'GET',
     qs: {
       'api_key': APIKeys.aemet_api_key
     },
-    url: aemetAPIURL,
+    url: url,
     headers: {
       'Accept': 'application/json;charset=UTF-8', // Responde text/plain;charset=ISO-8859-15, Aemet debe corregirlo
       'Accept-Charset': 'UTF-8',
       'cache-control': 'no-cache'
     }
   };
+};
+
+
+/* Get aemet json for data */
+function getAemetDiaryData(municipio, provincia) {
+  var municipioCode = municipiosData[provincia][municipio]; // Get the code for that locality
+  var aemetURLMunicipioDiaria = 'https://opendata.aemet.es/opendata/api/prediccion/especifica/municipio/diaria/' + municipioCode;
+  const options = createAemetOptionsForRequest(aemetURLMunicipioDiaria);
+  
   var aemetDataURL = new Promise(function (resolve, reject) {
     request(options, function (error, response, body) {
       if (error)
@@ -145,18 +163,7 @@ function getAemetDiaryData(municipio, provincia) {
   
   return new Promise(function (resolve, reject) {
     aemetDataURL.then(function(url){
-      const options = {
-        method: 'GET',
-        qs: {
-          'api_key': APIKeys.aemet_api_key
-        },
-        url: url,
-        headers: {
-          'Accept': 'application/json;charset=UTF-8',
-          'Accept-Charset': 'UTF-8',
-          'cache-control': 'no-cache'
-        }
-      };
+      const options = createAemetOptionsForRequest(url);
       request(options, function (error, response, body) {
         try {
           if (response.statusCode != 200)
@@ -173,4 +180,42 @@ function getAemetDiaryData(municipio, provincia) {
 };
 
 
-module.exports = { getCoordinatesFromQuery, getLocalityFromCoordinates, getAemetDiaryData, String };
+function getAemetHourlyData(municipio, provincia) {
+  var municipioCode = municipiosData[provincia][municipio]; // Get the code for that locality
+  var aemetURLMunicipioHoraria = 'https://opendata.aemet.es/opendata/api/prediccion/especifica/municipio/horaria/' + municipioCode;
+  const options = createAemetOptionsForRequest(aemetURLMunicipioHoraria);
+  
+  var aemetDataURL = new Promise(function (resolve, reject) {
+    request(options, function (error, response, body) {
+      if (error)
+        return reject(error);
+      try {
+        var data = JSON.parse(body);
+        resolve(data.datos);
+      } catch (e) {
+        reject(e);
+      }
+    });
+  });
+  
+  return new Promise(function (resolve, reject) {
+    aemetDataURL.then(function(url){
+      const options = createAemetOptionsForRequest(url);
+      
+      request(options, function (error, response, body) {
+        try {
+          if (response.statusCode != 200)
+            throw 'Aemet data not found or was expired';
+          resolve(JSON.parse(body));         
+        } catch (e) {
+          reject(e);
+        }
+      });
+    }).catch(function(error){
+      reject(error);
+    });
+  });
+};
+
+
+module.exports = { getCoordinatesFromQuery, getLocalityFromCoordinates, getAemetDiaryData, getAemetHourlyData, String };
