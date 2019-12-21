@@ -58,14 +58,35 @@ function isInMunicipios(municipio, provincia) {
 
 
 /* Create Google Places API request options */
-function createPlacesOptionsForRequest(url) {
+function createOptionsForFindPlaceFromText(url, query) {
   return {
     method: 'GET',
-    url: url,
+    uri: url,
+    qs: {
+      input: query,
+      inputtype: 'textquery',
+      fields: 'formatted_address,geometry/location',
+      key: APIKeys.google_places_api_key
+    },
     headers: {
       'Accept': 'application/json;charset=UTF-8',
-      'Accept-Charset': 'UTF-8',
-      'cache-control': 'no-cache'
+      'Accept-Charset': 'UTF-8'
+    }
+  };
+};
+
+
+function createOptionsForGeocode(url, lat, lng) {
+  return {
+    method: 'GET',
+    uri: url,
+    qs: {
+      latlng: lat+','+lng,
+      key: APIKeys.google_places_api_key
+    },
+    headers: {
+      'Accept': 'application/json;charset=UTF-8',
+      'Accept-Charset': 'UTF-8'
     }
   };
 };
@@ -73,8 +94,8 @@ function createPlacesOptionsForRequest(url) {
 
 /* Get coordinates from query. */
 function getCoordinatesFromQuery(query) {
-  var placesAPIURL = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=' + query + '&inputtype=textquery&fields=formatted_address,geometry/location&key=' + APIKeys.google_places_api_key;
-  const options = createPlacesOptionsForRequest(placesAPIURL);
+  var placesAPIURL = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json';
+  const options = createOptionsForFindPlaceFromText(placesAPIURL, query);
   
   return new Promise(function (resolve, reject) {
     request(options, function (error, response, body) {
@@ -82,7 +103,7 @@ function getCoordinatesFromQuery(query) {
         return reject(error);
       var lat,lng;
       try {
-        var place = JSON.parse(body)
+        var place = JSON.parse(body);
         lat = place.candidates[0].geometry.location.lat;
         lng = place.candidates[0].geometry.location.lng;
         resolve({latitude: lat, longitude: lng});
@@ -96,8 +117,8 @@ function getCoordinatesFromQuery(query) {
 
 /* Get city name and provincia from coordinates */
 function getLocalityFromCoordinates(latitude, longitude) {
-  var geocodingAPIURL = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&key=' + APIKeys.google_places_api_key;
-  const options = createPlacesOptionsForRequest(geocodingAPIURL);
+  var geocodingAPIURL = 'https://maps.googleapis.com/maps/api/geocode/json';
+  const options = createOptionsForGeocode(geocodingAPIURL, latitude, longitude);
   
   return new Promise(function (resolve, reject) {
     request(options, function (error, response, body) {
