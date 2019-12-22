@@ -19,6 +19,7 @@ router.get('/', function (req, res, next) {
         res.render('weather', {
           title: 'meteo',
           location: locality.municipio + ', ' + locality.provincia,
+          date: utils.createDate(),
           hourlyData: datos[0],
           diaryData: datos[1]
         });
@@ -45,6 +46,7 @@ router.get('/', function (req, res, next) {
           res.render('weather', {
             title: 'meteo',
             location: locality.municipio + ', ' + locality.provincia,
+            date: utils.createDate(),
             hourlyData: datos[0],
             diaryData: datos[1]
           });

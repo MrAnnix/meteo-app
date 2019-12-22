@@ -47,6 +47,21 @@ var __request = function (urls, callback) {
 };
 
 
+/* Create date object */
+function createDate() {
+  var fecha = new Date();
+  return {
+    year: fecha.getFullYear(),
+    month: fecha.getMonth(),
+    day: fecha.getDate(),
+    hour: fecha.getHours(),
+    minutes: fecha.getMinutes(),
+    seconds: fecha.getSeconds(),
+    weekday: fecha.getDay()
+  };
+};
+
+
 /* Check locality in JSON */
 function isInMunicipios(municipio, provincia) {
   var foo;
@@ -241,4 +256,4 @@ function getAemetHourlyData(municipio, provincia) {
 };
 
 
-module.exports = { getCoordinatesFromQuery, getLocalityFromCoordinates, getAemetDiaryData, getAemetHourlyData, String };
+module.exports = { getCoordinatesFromQuery, getLocalityFromCoordinates, getAemetDiaryData, getAemetHourlyData, createDate, String };
