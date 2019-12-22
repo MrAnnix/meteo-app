@@ -101,7 +101,8 @@ function createOptionsForFindPlaceFromText(url, query) {
     },
     headers: {
       'Accept': 'application/json;charset=UTF-8',
-      'Accept-Charset': 'UTF-8'
+      'Accept-Charset': 'UTF-8',
+      'Accept-Language': 'es-ES, es, ba;q=0.5, ca;q=0.5, gl;q=0.5'
     }
   };
 };
@@ -117,7 +118,8 @@ function createOptionsForGeocode(url, lat, lng) {
     },
     headers: {
       'Accept': 'application/json;charset=UTF-8',
-      'Accept-Charset': 'UTF-8'
+      'Accept-Charset': 'UTF-8',
+      'Accept-Language': 'es-ES, es, ba;q=0.5, ca;q=0.5, gl;q=0.5'
     }
   };
 };
@@ -167,6 +169,7 @@ function getLocalityFromCoordinates(latitude, longitude) {
           if (muni && prov) {
             municipio = muni.long_name;
             provincia = prov.long_name;
+            console.log(municipio+', '+provincia);
             return isInMunicipios(municipio, provincia);
           }
         });
