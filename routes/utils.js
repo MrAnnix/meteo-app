@@ -102,7 +102,7 @@ function createOptionsForFindPlaceFromText(url, query) {
     headers: {
       'Accept': 'application/json;charset=UTF-8',
       'Accept-Charset': 'UTF-8',
-      'Accept-Language': 'es-ES, es, ba;q=0.5, ca;q=0.5, gl;q=0.5'
+      'Accept-Language': 'es-ES,es;q=0.9,ca;q=0.8,eu;q=0.7,gl;q=0.6'
     }
   };
 };
@@ -119,7 +119,7 @@ function createOptionsForGeocode(url, lat, lng) {
     headers: {
       'Accept': 'application/json;charset=UTF-8',
       'Accept-Charset': 'UTF-8',
-      'Accept-Language': 'es-ES, es, ba;q=0.5, ca;q=0.5, gl;q=0.5'
+      'Accept-Language': 'es-ES,es;q=0.9,ca;q=0.8,eu;q=0.7,gl;q=0.6'
     }
   };
 };
