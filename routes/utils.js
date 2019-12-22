@@ -47,6 +47,21 @@ var __request = function (urls, callback) {
 };
 
 
+/* Array rotate */
+Array.prototype.rotate = (function() {
+    var unshift = Array.prototype.unshift,
+        splice = Array.prototype.splice;
+
+    return function(count) {
+        var len = this.length >>> 0,
+            count = count >> 0;
+
+        unshift.apply(this, splice.call(this, count % len, len));
+        return this;
+    };
+})();
+
+
 /* Create date object */
 function createDate() {
   var fecha = new Date();
@@ -58,24 +73,7 @@ function createDate() {
     minutes: fecha.getMinutes(),
     seconds: fecha.getSeconds(),
     weekday: fecha.getDay(),
-    weekdayStr: e => {
-      switch (fecha.getDay()) {
-        case 0:
-          return 'Lunes'
-        case 1:
-          return 'Martes'
-        case 2:
-          return 'Miércoles'
-        case 3:
-          return 'Jueves'
-        case 4:
-          return 'Viernes'
-        case 5:
-          return 'Sábado'
-        case 6:
-          return 'Domingo'
-      }
-    }
+    weekdayStr: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'].rotate(fecha.getDay())
   };
 };
 
