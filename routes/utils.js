@@ -57,7 +57,25 @@ function createDate() {
     hour: fecha.getHours(),
     minutes: fecha.getMinutes(),
     seconds: fecha.getSeconds(),
-    weekday: fecha.getDay()
+    weekday: fecha.getDay(),
+    weekdayStr: e => {
+      switch (fecha.getDay()) {
+        case 0:
+          return 'Lunes'
+        case 1:
+          return 'Martes'
+        case 2:
+          return 'Miércoles'
+        case 3:
+          return 'Jueves'
+        case 4:
+          return 'Viernes'
+        case 5:
+          return 'Sábado'
+        case 6:
+          return 'Domingo'
+      }
+    }
   };
 };
 
