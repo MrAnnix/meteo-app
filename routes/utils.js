@@ -169,7 +169,6 @@ function getLocalityFromCoordinates(latitude, longitude) {
           if (muni && prov) {
             municipio = muni.long_name;
             provincia = prov.long_name;
-            console.log(municipio+', '+provincia);
             return isInMunicipios(municipio, provincia);
           }
         });
