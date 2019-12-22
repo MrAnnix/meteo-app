@@ -8,6 +8,11 @@ function getDataByURL(url, datos, obtainedData) {
   });
 }
 
+String.prototype.replaceAll = function(str1, str2, ignore) 
+{
+  return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g,"\\$&"),(ignore?"gi":"g")),(typeof(str2)=="string")?str2.replace(/\$/g,"$$$$"):str2);
+}
+
 function initializeSwiper() {
   var swiper = new Swiper('.swiper-container', {
       slidesPerView: 4,
@@ -136,6 +141,6 @@ $(function () {
 $('#searchPlace').text(function(){
   var texto = get('location');
 	if (texto) {
-		this.value = texto;
+		this.value = texto.replaceAll('+', ' ');
 	}
 });
