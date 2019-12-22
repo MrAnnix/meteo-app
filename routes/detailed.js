@@ -13,11 +13,11 @@ router.get('/', function (req, res, next) {
   
   if (query == undefined && latitude && longitude) { // The user has not provided a query, but we got the coordinates
     utils.getLocalityFromCoordinates(latitude, longitude).then(function (locality) { // Obtain locality associated to that coordinates
-      utils.getAemetDiaryData(locality.municipio, locality.provincia).then(function(datos){ // Obtain Aemet diary data for user location
+      utils.getAemetHourlyData(locality.municipio, locality.provincia).then(function(datos){ // Obtain Aemet diary data for user location
         res.render('detailed', {
           title: 'meteo',
           location: locality.municipio + ', ' + locality.provincia,
-          data: datos
+          hourlyData: datos
         });
       }).catch(function(error){
         console.log(error);
@@ -36,11 +36,11 @@ router.get('/', function (req, res, next) {
   } else if (query) { // The user has provided a query
     utils.getCoordinatesFromQuery(query).then(function(coordinates){ // Convert place to coordinates
       utils.getLocalityFromCoordinates(coordinates.latitude, coordinates.longitude).then(function(locality){ // Obtain locality associated to that coordinates
-        utils.getAemetDiaryData(locality.municipio, locality.provincia).then(function (datos) { // Obtain Aemet diary data for query
+        utils.getAemetHourlyData(locality.municipio, locality.provincia).then(function (datos) { // Obtain Aemet diary data for query
           res.render('detailed', {
             title: 'meteo',
             location: locality.municipio + ', ' + locality.provincia,
-            data: datos
+            hourlyData: datos
           });
         }).catch(function (error) {
           console.log(error);

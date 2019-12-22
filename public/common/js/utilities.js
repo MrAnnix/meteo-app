@@ -47,8 +47,8 @@ function getDetailedWeatherByCoordinates(lat, lng) {
   );
 }
 
-function getPrevisionWeatherByLocation(loc) {
-  let url = '/prevision';
+function getActualWeatherByLocation(loc) {
+  let url = '/weather';
   let data = {
     location: loc
   };
@@ -57,14 +57,14 @@ function getPrevisionWeatherByLocation(loc) {
     url,
     data, 
     function(o){
-      document.getElementById('previsionBlock').innerHTML = o;
+      document.getElementById('fullWeather').innerHTML = o;
       initializeSwiper();
     }
   );
 }
 
-function getPrevisionWeatherByCoordinates(lat, lng) {
-  var url = '/prevision';
+function getActualWeatherByCoordinates(lat, lng) {
+  var url = '/weather';
   var data = {
     latitude: lat,
     longitude: lng
@@ -74,7 +74,7 @@ function getPrevisionWeatherByCoordinates(lat, lng) {
     url,
     data, 
     function(o){
-      document.getElementById('previsionBlock').innerHTML = o;
+      document.getElementById('fullWeather').innerHTML = o;
       initializeSwiper();
     }
   );
@@ -86,6 +86,27 @@ function get(name) {
 }
 
 function getFullWeather() {
+  var location = get('location');
+
+  if (location) {
+    getActualWeatherByLocation(location);
+  } else if ("geolocation" in navigator) {
+    navigator.geolocation.getCurrentPosition(
+      function success(position) {
+        getActualWeatherByCoordinates(position.coords.latitude, position.coords.longitude);
+      },
+      function error(error_message) {
+        console.warn('ERROR(' + err.code + '): ' + err.message);
+      }
+    );
+  } else {
+    console.error('No se especificó ningún lugar ni se pudo obtener una ubicación');
+    return
+  }
+  initializeSwiper();
+}
+
+function getDetailedWeather() {
   var location = get('location');
 
   if (location) {
@@ -110,4 +131,11 @@ function getFullWeather() {
 
 $(function () {
   getFullWeather();
+});
+
+$('#searchPlace').text(function(){
+  var texto = get('location');
+	if (texto) {
+		this.value = texto;
+	}
 });

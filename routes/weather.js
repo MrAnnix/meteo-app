@@ -2,6 +2,8 @@ var request = require('request');
 var express = require('express');
 var router = express.Router();
 
+var utils = require('./utils');
+
 
 /* GET full weather block. */
 router.get('/', function (req, res, next) {
@@ -10,60 +12,65 @@ router.get('/', function (req, res, next) {
   let longitude = req.query.longitude;
   
   if (query == undefined && latitude && longitude) { // The user has not provided a query, but we got the coordinates
-    utils.getLocalityFromCoordinates(latitude, longitude).then(function (locality) { // Obtain locality associated to that coordinates
-      utils.getAemetDiaryData(locality.municipio, locality.provincia).then(function(datos){ // Obtain Aemet diary data for user location
-        res.render('detailed', {
+    utils.getLocalityFromCoordinates(latitude, longitude).then(locality => { // Obtain locality associated to that coordinates
+      var diaryData  = utils.getAemetDiaryData(locality.municipio, locality.provincia); // Obtain Aemet diary data for query as a Promise
+      var hourlyData = utils.getAemetDiaryData(locality.municipio, locality.provincia); // Obtain Aemet horly data for query as a Promise     
+      Promise.all([hourlyData, diaryData]).then(datos => { // Render the resource
+        res.render('weather', {
           title: 'meteo',
           location: locality.municipio + ', ' + locality.provincia,
-          data: datos
+          hourlyData: datos[0],
+          diaryData: datos[1]
         });
-      }).catch(function(error){
+      }).catch(error => {
         console.log(error);
-        res.render('detailed', {
+        res.render('weather', {
           title: 'meteo',
-          error: 'No pudo obtenerse la información del tiempo asociada a su ubicación'
+          error: 'No pudo obtenerse la información del tiempo asociada a "' + query + '" revise su consulta'
         });
       });
-    }).catch(function(error) {
+    }).catch(error => {
       console.log(error);
-      res.render('detailed', {
+      res.render('weather', {
         title: 'meteo',
         error: 'No pudimos encontrar ninguna localidad asociada a su ubicación'
       });
     });
   } else if (query) { // The user has provided a query
-    utils.getCoordinatesFromQuery(query).then(function(coordinates){ // Convert place to coordinates
-      utils.getLocalityFromCoordinates(coordinates.latitude, coordinates.longitude).then(function(locality){ // Obtain locality associated to that coordinates
-        utils.getAemetDiaryData(locality.municipio, locality.provincia).then(function (datos) { // Obtain Aemet diary data for query
-          res.render('detailed', {
+    utils.getCoordinatesFromQuery(query).then(coordinates => { // Convert place to coordinates
+      utils.getLocalityFromCoordinates(coordinates.latitude, coordinates.longitude).then(locality => { // Obtain locality associated to that coordinates
+        var diaryData  = utils.getAemetDiaryData(locality.municipio, locality.provincia); // Obtain Aemet diary data for query as a Promise
+        var hourlyData = utils.getAemetDiaryData(locality.municipio, locality.provincia); // Obtain Aemet horly data for query as a Promise       
+        Promise.all([hourlyData, diaryData]).then(datos => { // Render the resource
+          res.render('weather', {
             title: 'meteo',
             location: locality.municipio + ', ' + locality.provincia,
-            data: datos
+            hourlyData: datos[0],
+            diaryData: datos[1]
           });
-        }).catch(function (error) {
+        }).catch(error => {
           console.log(error);
-          res.render('detailed', {
+          res.render('weather', {
             title: 'meteo',
             error: 'No pudo obtenerse la información del tiempo asociada a "' + query + '" revise su consulta'
           });
         });
-      }).catch(function(error){
+      }).catch(error => {
         console.log(error);
-        res.render('detailed', {
+        res.render('weather', {
           title: 'meteo',
           error: 'No pudimos encontrar el lugar "' + query + '" revise su consulta'
         });
       });
-    }).catch(function(error){
+    }).catch(error => {
       console.log(error);
-      console.log(error);
-      res.render('detailed', {
+      res.render('weather', {
         title: 'meteo',
         error: 'No pudimos encontrar el lugar "' + query + '"'
       });
     });
   } else {
-    res.render('detailed', {
+    res.render('weather', {
       title: 'meteo',
       error: 'Lo sentimos, no pudimos obtener su ubicación o su navegador no es compatible'
     });

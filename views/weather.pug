@@ -1,6 +1,112 @@
-if location
-  p Está en #{location}
-
-if latitude
-  p(id='realPosition') Latitude: #{latitude} Longitude: #{longitude}
-	  
+if error
+  p(class='error') #{error}
+else
+  if hourlyData
+    p #{hourlyData[0].nombre}, #{hourlyData[0].provincia}
+    
+  if diaryData
+    p #{diaryData[0].nombre}, #{diaryData[0].provincia}
+  
+  // El tiempo hoy
+  div(class='row')
+    div(class='col border border-secondary rounded')
+      if location
+        h2 El tiempo hoy en #{location}
+  
+  div(class='meteo-grid-container')
+    div(class='meteo-icono')
+      img(src='/common/img/weather/sun.svg' style='width:100%; height:100%;')
+    div(class='meteo-temperatura text-center mx-auto my-auto')
+      p -20º
+    div(class='meteo-minMax text-center mx-auto my-3')
+      p 1º/10º
+    div(class='meteo-humedad text-center mx-auto my-3')
+      p 80%
+    div(class='meteo-direccionViento text-center mx-auto my-3')
+      p NE
+    div(class='meteo-velocidadViento text-center mx-auto my-3')
+      p 20km/h
+    div(class='meteo-indiceUV text-center mx-auto my-3')
+      p UV
+    div(class='meteo-masInfo text-center mx-auto my-3')
+      p +info
+      
+  // Previsión por días
+  div(class='row')
+    div(class='col border border-secondary rounded')
+      h2 Predicción de los próximos 7 dias
+  
+  div(class='swiper-container')
+    div(class='swiper-wrapper')
+      div(class='swiper-slide')
+        div(class='prevision-grid-container')
+          div(class='prevision-dia text-center mx-auto my-auto')
+            p Lunes
+          div(class='prevision-icono')
+            img(src='/common/img/weather/sun.svg' style='width:100%; height:100%;')
+          div(class='prevision-temperatura text-center mx-auto my-4')
+            p -20º
+          div(class='prevision-minMax text-center mx-auto my-1')
+            p 1º/10º
+          div(class='prevision-humedad text-center mx-auto my-auto')
+            p 80%
+      div(class='swiper-slide')
+        div(class='prevision-grid-container')
+          div(class='prevision-dia text-center mx-auto my-auto')
+            p Martes
+          div(class='prevision-icono')
+            img(src='/common/img/weather/rain.svg' style='width:100%; height:100%;')
+          div(class='prevision-temperatura text-center mx-auto my-4')
+            p -4º
+          div(class='prevision-minMax text-center mx-auto my-1')
+            p -10º/10º
+          div(class='prevision-humedad text-center mx-auto my-auto')
+            p 50%
+      div(class='swiper-slide')
+        div(class='prevision-grid-container')
+          div(class='prevision-dia text-center mx-auto my-auto')
+            p Miercoles
+          div(class='prevision-icono')
+            img(src='/common/img/weather/night.svg' style='width:100%; height:100%;')
+          div(class='prevision-temperatura text-center mx-auto my-4')
+            p 20º
+          div(class='prevision-minMax text-center mx-auto my-1')
+            p 1º/20º
+          div(class='prevision-humedad text-center mx-auto my-auto')
+            p 6%
+      div(class='swiper-slide')
+        div(class='prevision-grid-container')
+          div(class='prevision-dia text-center mx-auto my-auto')
+            p Jueves
+          div(class='prevision-icono')
+            img(src='/common/img/weather/comet.svg' style='width:100%; height:100%;')
+          div(class='prevision-temperatura text-center mx-auto my-4')
+            p 1º
+          div(class='prevision-minMax text-center mx-auto my-1')
+            p 1º/10º
+          div(class='prevision-humedad text-center mx-auto my-auto')
+            p 10%
+      div(class='swiper-slide')
+        div(class='prevision-grid-container')
+          div(class='prevision-dia text-center mx-auto my-auto')
+            p Viernes
+          div(class='prevision-icono')
+            img(src='/common/img/weather/snowing.svg' style='width:100%; height:100%;')
+          div(class='prevision-temperatura text-center mx-auto my-4')
+            p -20º
+          div(class='prevision-minMax text-center mx-auto my-1')
+            p -25º/10º
+          div(class='prevision-humedad text-center mx-auto my-auto')
+            p 3%
+      div(class='swiper-slide')
+        div(class='prevision-grid-container')
+          div(class='prevision-dia text-center mx-auto my-auto')
+            p Sabado
+          div(class='prevision-icono')
+            img(src='/common/img/weather/wind.svg' style='width:100%; height:100%;')
+          div(class='prevision-temperatura text-center mx-auto my-4')
+            p 7º
+          div(class='prevision-minMax text-center mx-auto my-1')
+            p 1º/10º
+          div(class='prevision-humedad text-center mx-auto my-auto')
+            p 80%
