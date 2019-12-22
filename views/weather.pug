@@ -11,23 +11,30 @@ else
   div(class='row')
     div(class='col border border-secondary rounded')
       if location
-        h2 El tiempo hoy en #{location}
+        h2 El tiempo hoy (#{date.hour}:#{date.minutes}) en #{location}
   
+  block content
+     var foo = #{hourlyData[0].prediccion.dia[0].temperatura}.find(a => a.periodo === '22')
+
+     var value = foo.value;
+	
+
   div(class='meteo-grid-container')
     div(class='meteo-icono')
       img(src='/common/img/weather/sun.svg' style='width:100%; height:100%;')
     div(class='meteo-temperatura text-center mx-auto my-auto')
-      p -20º
+      //p #{value}
+      p #{hourlyData[0].prediccion.dia[0].temperatura[0].value}º
     div(class='meteo-minMax text-center mx-auto my-3')
-      p 1º/10º
+      p #{diaryData[0].prediccion.dia[0].temperatura.maxima}º / #{diaryData[0].prediccion.dia[0].temperatura.minima}º
     div(class='meteo-humedad text-center mx-auto my-3')
-      p 80%
+      p #{hourlyData[0].prediccion.dia[0].humedadRelativa[0].value}%
     div(class='meteo-direccionViento text-center mx-auto my-3')
-      p NE
+      p #{hourlyData[0].prediccion.dia[0].vientoAndRachaMax[0].direccion}
     div(class='meteo-velocidadViento text-center mx-auto my-3')
-      p 20km/h
+      p #{hourlyData[0].prediccion.dia[0].vientoAndRachaMax[0].velocidad}km/h
     div(class='meteo-indiceUV text-center mx-auto my-3')
-      p UV
+      p #{diaryData[0].prediccion.dia[1].uvMax}
     div(class='meteo-masInfo text-center mx-auto my-3')
       p +info
       
@@ -43,70 +50,59 @@ else
           div(class='prevision-dia text-center mx-auto my-auto')
             p Lunes
           div(class='prevision-icono')
-            img(src='/common/img/weather/sun.svg' style='width:100%; height:100%;')
-          div(class='prevision-temperatura text-center mx-auto my-4')
-            p -20º
-          div(class='prevision-minMax text-center mx-auto my-1')
-            p 1º/10º
-          div(class='prevision-humedad text-center mx-auto my-auto')
-            p 80%
+            p #{diaryData[0].prediccion.dia[1].estadoCielo[0].descripcion}
+            //img(src=#{getIconWeather(diaryData[0].prediccion.dia[1].estadoCielo[0].descripcion)} style='width:100%; height:100%;')
+          div(class='prevision-minMax text-center mx-auto my-auto')
+            p #{diaryData[0].prediccion.dia[1].temperatura.maxima}º / #{diaryData[0].prediccion.dia[1].temperatura.minima}º
+          div(class='prevision-sensacion text-center mx-auto my-auto')
+            p #{diaryData[0].prediccion.dia[1].sensTermica.maxima}º / #{diaryData[0].prediccion.dia[1].sensTermica.minima}º
       div(class='swiper-slide')
         div(class='prevision-grid-container')
           div(class='prevision-dia text-center mx-auto my-auto')
             p Martes
           div(class='prevision-icono')
-            img(src='/common/img/weather/rain.svg' style='width:100%; height:100%;')
-          div(class='prevision-temperatura text-center mx-auto my-4')
-            p -4º
-          div(class='prevision-minMax text-center mx-auto my-1')
-            p -10º/10º
-          div(class='prevision-humedad text-center mx-auto my-auto')
-            p 50%
+            // img(src=#{getIconWeather(diaryData[2].prediccion.dia[2].estadoCielo.descripcion)} style='width:100%; height:100%;')
+          div(class='prevision-minMax text-center mx-auto my-auto')
+            p #{diaryData[0].prediccion.dia[2].temperatura.maxima}º / #{diaryData[0].prediccion.dia[2].temperatura.minima}º
+          div(class='prevision-sensacion text-center mx-auto my-auto')
+            p #{diaryData[0].prediccion.dia[2].sensTermica.maxima}º / #{diaryData[0].prediccion.dia[2].sensTermica.minima}º
       div(class='swiper-slide')
         div(class='prevision-grid-container')
           div(class='prevision-dia text-center mx-auto my-auto')
             p Miercoles
           div(class='prevision-icono')
-            img(src='/common/img/weather/night.svg' style='width:100%; height:100%;')
-          div(class='prevision-temperatura text-center mx-auto my-4')
-            p 20º
-          div(class='prevision-minMax text-center mx-auto my-1')
-            p 1º/20º
-          div(class='prevision-humedad text-center mx-auto my-auto')
-            p 6%
+            // img(src=#{getIconWeather(diaryData[0].prediccion.dia[3].estadoCielo.descripcion)} style='width:100%; height:100%;')
+          div(class='prevision-minMax text-center mx-auto my-auto')
+            p #{diaryData[0].prediccion.dia[3].temperatura.maxima}º / #{diaryData[0].prediccion.dia[3].temperatura.minima}º
+          div(class='prevision-sensacion text-center mx-auto my-auto')
+            p #{diaryData[0].prediccion.dia[3].sensTermica.maxima}º / #{diaryData[0].prediccion.dia[3].sensTermica.minima}º
       div(class='swiper-slide')
         div(class='prevision-grid-container')
           div(class='prevision-dia text-center mx-auto my-auto')
-            p Jueves
+            p Miercoles
           div(class='prevision-icono')
-            img(src='/common/img/weather/comet.svg' style='width:100%; height:100%;')
-          div(class='prevision-temperatura text-center mx-auto my-4')
-            p 1º
-          div(class='prevision-minMax text-center mx-auto my-1')
-            p 1º/10º
-          div(class='prevision-humedad text-center mx-auto my-auto')
-            p 10%
+            // img(src=#{getIconWeather(diaryData[0].prediccion.dia[4].estadoCielo.descripcion)} style='width:100%; height:100%;')
+          div(class='prevision-minMax text-center mx-auto my-auto')
+            p #{diaryData[0].prediccion.dia[4].temperatura.maxima}º / #{diaryData[0].prediccion.dia[4].temperatura.minima}º
+          div(class='prevision-sensacion text-center mx-auto my-auto')
+            p #{diaryData[0].prediccion.dia[4].sensTermica.maxima}º / #{diaryData[0].prediccion.dia[4].sensTermica.minima}º
       div(class='swiper-slide')
         div(class='prevision-grid-container')
           div(class='prevision-dia text-center mx-auto my-auto')
-            p Viernes
+            p Miercoles
           div(class='prevision-icono')
-            img(src='/common/img/weather/snowing.svg' style='width:100%; height:100%;')
-          div(class='prevision-temperatura text-center mx-auto my-4')
-            p -20º
-          div(class='prevision-minMax text-center mx-auto my-1')
-            p -25º/10º
-          div(class='prevision-humedad text-center mx-auto my-auto')
-            p 3%
+            // img(src=#{getIconWeather(diaryData[0].prediccion.dia[0].estadoCielo.descripcion)} style='width:100%; height:100%;')
+          div(class='prevision-minMax text-center mx-auto my-auto')
+            p #{diaryData[0].prediccion.dia[5].temperatura.maxima}º / #{diaryData[0].prediccion.dia[5].temperatura.minima}º
+          div(class='prevision-sensacion text-center mx-auto my-auto')
+            p #{diaryData[0].prediccion.dia[5].sensTermica.maxima}º / #{diaryData[0].prediccion.dia[5].sensTermica.minima}º
       div(class='swiper-slide')
         div(class='prevision-grid-container')
           div(class='prevision-dia text-center mx-auto my-auto')
-            p Sabado
+            p Miercoles
           div(class='prevision-icono')
-            img(src='/common/img/weather/wind.svg' style='width:100%; height:100%;')
-          div(class='prevision-temperatura text-center mx-auto my-4')
-            p 7º
-          div(class='prevision-minMax text-center mx-auto my-1')
-            p 1º/10º
-          div(class='prevision-humedad text-center mx-auto my-auto')
-            p 80%
+            // img(src=#{getIconWeather(diaryData[0].prediccion.dia[6].estadoCielo.descripcion)} style='width:100%; height:100%;')
+          div(class='prevision-minMax text-center mx-auto my-auto')
+            p #{diaryData[0].prediccion.dia[6].temperatura.maxima}º / #{diaryData[0].prediccion.dia[6].temperatura.minima}º
+          div(class='prevision-sensacion text-center mx-auto my-auto')
+            p #{diaryData[0].prediccion.dia[6].sensTermica.maxima}º / #{diaryData[0].prediccion.dia[6].sensTermica.minima}º
