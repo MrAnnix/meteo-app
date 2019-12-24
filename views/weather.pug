@@ -22,7 +22,7 @@ else
   
   div(class='meteo-grid-container')
     div(class='meteo-icono')
-      img(src="#{getWeatherHourly(hourlyData[0].prediccion.dia[0].estadoCielo)}" style='width:100%; height:100%;')
+      img(src=getWeatherHourly(hourlyData[0].prediccion.dia[0].estadoCielo) style='width:100%; height:100%; padding:30px ')
     div(class='meteo-temperatura text-center mx-auto my-auto')
       p #{takeValues(hourlyData[0].prediccion.dia[0].temperatura)}º
     div(class='meteo-minMax text-center mx-auto my-3')
@@ -34,7 +34,7 @@ else
     div(class='meteo-velocidadViento text-center mx-auto my-3')
       p #{takeValuesVientoVelocidad(hourlyData[0].prediccion.dia[0].vientoAndRachaMax)}km/h
     div(class='meteo-indiceUV text-center mx-auto my-3')
-      p #{diaryData[0].prediccion.dia[1].uvMax}
+      p uv : #{diaryData[0].prediccion.dia[1].uvMax}
     div(class='meteo-masInfo text-center mx-auto my-3')
       p +info
       
@@ -50,7 +50,7 @@ else
           div(class='prevision-dia text-center mx-auto my-auto')
             p #{date.weekdayStr[1]}
           div(class='prevision-icono')
-            img(src="#{getWeatherDiarly(diaryData[0].prediccion.dia[1].estadoCielo[0].descripcion)}" style='width:100%; height:100%;')
+            img(src=getWeatherDiarly(diaryData[0].prediccion.dia[1].estadoCielo[0].descripcion) style='width:100%; height:100%;')
           div(class='prevision-minMax text-center mx-auto my-auto')
             p #{diaryData[0].prediccion.dia[1].temperatura.maxima}º / #{diaryData[0].prediccion.dia[1].temperatura.minima}º
           div(class='prevision-sensacion text-center mx-auto my-auto')
@@ -60,7 +60,7 @@ else
           div(class='prevision-dia text-center mx-auto my-auto')
             p #{date.weekdayStr[2]}
           div(class='prevision-icono')
-            img(src="#{getWeatherDiarly(diaryData[0].prediccion.dia[2].estadoCielo[0].descripcion)}" style='width:100%; height:100%;')
+            img(src=getWeatherDiarly(diaryData[0].prediccion.dia[2].estadoCielo[0].descripcion) style='width:100%; height:100%;')
           div(class='prevision-minMax text-center mx-auto my-auto')
             p #{diaryData[0].prediccion.dia[2].temperatura.maxima}º / #{diaryData[0].prediccion.dia[2].temperatura.minima}º
           div(class='prevision-sensacion text-center mx-auto my-auto')
@@ -70,7 +70,7 @@ else
           div(class='prevision-dia text-center mx-auto my-auto')
             p #{date.weekdayStr[3]}
           div(class='prevision-icono')
-            img(src="#{getWeatherDiarly(diaryData[0].prediccion.dia[3].estadoCielo[0].descripcion)}" style='width:100%; height:100%;')
+            img(src=getWeatherDiarly(diaryData[0].prediccion.dia[3].estadoCielo[0].descripcion) style='width:100%; height:100%;')
           div(class='prevision-minMax text-center mx-auto my-auto')
             p #{diaryData[0].prediccion.dia[3].temperatura.maxima}º / #{diaryData[0].prediccion.dia[3].temperatura.minima}º
           div(class='prevision-sensacion text-center mx-auto my-auto')
@@ -80,7 +80,7 @@ else
           div(class='prevision-dia text-center mx-auto my-auto')
             p #{date.weekdayStr[4]}
           div(class='prevision-icono')
-            img(src="#{getWeatherDiarly(diaryData[0].prediccion.dia[4].estadoCielo[0].descripcion)}" style='width:100%; height:100%;')
+            img(src=getWeatherDiarly(diaryData[0].prediccion.dia[4].estadoCielo[0].descripcion) style='width:100%; height:100%;')
           div(class='prevision-minMax text-center mx-auto my-auto')
             p #{diaryData[0].prediccion.dia[4].temperatura.maxima}º / #{diaryData[0].prediccion.dia[4].temperatura.minima}º
           div(class='prevision-sensacion text-center mx-auto my-auto')
@@ -90,7 +90,7 @@ else
           div(class='prevision-dia text-center mx-auto my-auto')
             p #{date.weekdayStr[5]}
           div(class='prevision-icono')
-            img(src="#{getWeatherDiarly(diaryData[0].prediccion.dia[5].estadoCielo[0].descripcion)}" style='width:100%; height:100%;')
+            img(src=getWeatherDiarly(diaryData[0].prediccion.dia[5].estadoCielo[0].descripcion) style='width:100%; height:100%;')
           div(class='prevision-minMax text-center mx-auto my-auto')
             p #{diaryData[0].prediccion.dia[5].temperatura.maxima}º / #{diaryData[0].prediccion.dia[5].temperatura.minima}º
           div(class='prevision-sensacion text-center mx-auto my-auto')
@@ -100,7 +100,7 @@ else
           div(class='prevision-dia text-center mx-auto my-auto')
             p #{date.weekdayStr[6]}
           div(class='prevision-icono')
-            img(src="#{getWeatherDiarly(diaryData[0].prediccion.dia[6].estadoCielo[0].descripcion)}" style='width:100%; height:100%;')
+            img(src=getWeatherDiarly(diaryData[0].prediccion.dia[6].estadoCielo[0].descripcion) style='width:100%; height:100%;')
           div(class='prevision-minMax text-center mx-auto my-auto')
             p #{diaryData[0].prediccion.dia[6].temperatura.maxima}º / #{diaryData[0].prediccion.dia[6].temperatura.minima}º
           div(class='prevision-sensacion text-center mx-auto my-auto')
