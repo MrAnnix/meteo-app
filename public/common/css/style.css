@@ -16,10 +16,10 @@ a {
 	background-color: #ef6a5f;
     color: #FFF;
     border-radius: 8px;
-    padding-left: 2em;
-    margin: 1em 2em;
-    padding-top: .75em;
-    padding-bottom: .75em;
+    padding-left: 2rem;
+    margin: 1rem 0rem;
+    padding-top: .75rem;
+    padding-bottom: .75rem;
 }
 
 .md-form.mt-0{
