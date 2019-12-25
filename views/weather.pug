@@ -29,7 +29,7 @@ else
     div(class='meteo-direccionViento text-center mx-auto my-3')
       p #{takeValuesVientoDireccion(hourlyData[0].prediccion.dia[0].vientoAndRachaMax)}
     div(class='meteo-velocidadViento text-center mx-auto my-3')
-      p #{takeValuesVientoVelocidad(hourlyData[0].prediccion.dia[0].vientoAndRachaMax)}km/h
+      p #{takeValuesVientoVelocidad(hourlyData[0].prediccion.dia[0].vientoAndRachaMax)} km/h
     div(class='meteo-indiceUV text-center mx-auto my-3')
       p uv : #{diaryData[0].prediccion.dia[1].uvMax}
     div(class='meteo-masInfo text-center mx-auto my-3')
