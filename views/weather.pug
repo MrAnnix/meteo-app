@@ -2,10 +2,9 @@ if error
   p(class='error') #{error}
 else
   // El tiempo hoy
-  div(class='row')
-    div(class='col border border-secondary rounded')
-      if location
-        h2 El tiempo hoy en #{location}
+  div(class='border border-secondary rounded')
+    if location
+      h2(class='mx-2 my-1') El tiempo hoy en #{location}
 
   -Array.prototype.rotate=function(){var t=Array.prototype.unshift,r=Array.prototype.splice;return function(o){var p=this.length>>>0;o>>=0;return t.apply(this,r.call(this,o%p,p)),this}}();
   -String.prototype.replaceAll = function(str1, str2, ignore){return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g,"\\$&"),(ignore?"gi":"g")),(typeof(str2)=="string")?str2.replace(/\$/g,"$$$$"):str2);};
@@ -43,9 +42,8 @@ else
       p +info
       
   // Previsión por días
-  div(class='row')
-    div(class='col border border-secondary rounded')
-      h2 Predicción para los próximos días
+  div(class='border border-secondary rounded')
+    h2(class='mx-2 my-1') Predicción para los próximos días
   
   div(class='swiper-container slider-days')
     div(class='swiper-wrapper')
@@ -63,9 +61,8 @@ else
               p #{diaryData[0].prediccion.dia[day].sensTermica.maxima}º / #{diaryData[0].prediccion.dia[day].sensTermica.minima}º
 
   // Previsión por horas
-  div(class='row')
-    div(class='col border border-secondary rounded')
-      h2 Predicción para las próximas horas
+  div(class='border border-secondary rounded')
+    h2(class='mx-2 my-1') Predicción para las próximas horas
 
   div(class='swiper-container slider-hours')
     div(class='swiper-wrapper')
