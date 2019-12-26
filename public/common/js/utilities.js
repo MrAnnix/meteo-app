@@ -17,7 +17,7 @@ function initializeSwiper() {
   var slidesNum = 0.012 * $(window).width();
 
   var swiperDays = new Swiper('.slider-days', {
-      slidesPerView: slidesNum,
+      slidesPerView: 6,
       spaceBetween: 30,
       freeMode: true,
     });
