@@ -21,7 +21,7 @@ function initializeSwiper() {
     });
   
   var swiperHours = new Swiper('.slider-hours', {
-      slidesPerView: 12,
+      slidesPerView: 0.012 * $(window).width(),
       spaceBetween: 30,
       freeMode: true,
     });
