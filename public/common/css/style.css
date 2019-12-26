@@ -158,12 +158,6 @@ button:-moz-focusring,input:-moz-focusring {
   outline: 1px dotted ButtonText
 }
 
-fieldset {
-  border: 1px solid silver;
-  margin: 0 2px;
-  padding: .35em .625em .75em
-}
-
 legend {
   box-sizing: border-box;
   color: inherit;
