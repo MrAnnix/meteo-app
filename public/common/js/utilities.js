@@ -14,14 +14,16 @@ String.prototype.replaceAll = function(str1, str2, ignore)
 }
 
 function initializeSwiper() {
+  var slidesNum = 0.012 * $(window).width();
+
   var swiperDays = new Swiper('.slider-days', {
-      slidesPerView: 6,
+      slidesPerView: slidesNum,
       spaceBetween: 30,
       freeMode: true,
     });
   
   var swiperHours = new Swiper('.slider-hours', {
-      slidesPerView: 0.012 * $(window).width(),
+      slidesPerView: slidesNum,
       spaceBetween: 30,
       freeMode: true,
     });
