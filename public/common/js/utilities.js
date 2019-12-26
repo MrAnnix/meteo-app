@@ -15,7 +15,7 @@ String.prototype.replaceAll = function(str1, str2, ignore)
 
 function initializeSwiper() {
   var swiperDays = new Swiper('.slider-days', {
-      slidesPerView: 4,
+      slidesPerView: 6,
       spaceBetween: 30,
       freeMode: true,
     });
