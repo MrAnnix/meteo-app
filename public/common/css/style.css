@@ -44,6 +44,7 @@ a {
 }
 
 .meteo-icono { 
+  margin: .5rem;
 grid-column:1/5;
 grid-row: 1/5; }
 
@@ -95,16 +96,34 @@ font-size: 150%;
   grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 
+.horas-grid-container {
+  display: grid;
+  grid-template-columns: 2fr;
+  grid-template-rows: repeat(6, .75fr);
+  grid-template-areas: "prevision-hora" "prevision-icono-horas" "prevision-temperatura-horas" "prevision-humedad-horas" "prevision-viento-dir-horas" "prevision-viento-vel-horas";
+}
+
 .prevision-dia { 
 grid-column:1/7;
 grid-row: 1/2; 
 font-size: 100%;
 }
 
-.prevision-icono { 
+.prevision-hora {
+  grid-area: prevision-hora;
+  font-size: 100%;
+}
+
+.prevision-icono-dias {
+margin: 1rem;
 grid-column:1/7;
 grid-row: 2/4; 
 font-size: 100%;
+}
+
+.prevision-icono-horas {
+  grid-area: prevision-icono-horas; 
+  font-size: 100%;
 }
 
 .prevision-minMax { 
@@ -113,10 +132,30 @@ grid-row: 4/5;
 font-size: 100%;
 }
 
+.prevision-temperatura-horas { 
+  grid-area: prevision-temperatura-horas;
+  font-size: 100%;
+}
+
 .prevision-sensacion {
 grid-column:4/7;
 grid-row: 4/5; 
 font-size: 50%;
+}
+
+.prevision-humedad-horas { 
+  grid-area: prevision-humedad-horas; 
+  font-size: 100%;
+}
+
+.prevision-viento-dir-horas { 
+  grid-area: prevision-viento-dir-horas; 
+  font-size: 100%;
+}
+
+.prevision-viento-vel-horas { 
+  grid-area: prevision-viento-vel-horas; 
+  font-size: 100%;
 }
 
 .swiper-container {
