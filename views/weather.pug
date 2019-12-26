@@ -6,13 +6,20 @@ else
     div(class='col border border-secondary rounded')
       if location
         h2 El tiempo hoy en #{location}
-  
+
+  -Array.prototype.rotate=function(){var t=Array.prototype.unshift,r=Array.prototype.splice;return function(o){var p=this.length>>>0;o>>=0;return t.apply(this,r.call(this,o%p,p)),this}}();
+  -String.prototype.replaceAll = function(str1, str2, ignore){return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g,"\\$&"),(ignore?"gi":"g")),(typeof(str2)=="string")?str2.replace(/\$/g,"$$$$"):str2);};
+
   -function takeValues(cadena){var foo=cadena.find(a=>a.periodo==date.hour);var value=foo.value;return value;}
   -function takeValuesVientoDireccion(cadena){var foo=cadena.find(a=>a.periodo==date.hour);var direccion=foo.direccion;return direccion;}
   -function takeValuesVientoVelocidad(cadena){var foo=cadena.find(a=>a.periodo==date.hour);var velocidad=foo.velocidad;return velocidad;}
 
   -function getWeatherValues(cadena){var foo=cadena.find(a=>a.periodo==date.hour);var descripcion=foo.descripcion;return descripcion;}
-  -function getWeatherIcon(cadena,hora){if(hora<'07'&&hora>='19')return'/common/img/weather/noche/'+_getWeatherIcon(cadena);return'/common/img/weather/dia/'+_getWeatherIcon(cadena)}
+  -var orto = hourlyData[0].prediccion.dia[0].orto.split(":");
+  -orto = parseInt(orto[0]) + parseInt(orto[1])/60;
+  -var ocaso = hourlyData[0].prediccion.dia[0].ocaso.split(":");
+  -ocaso = parseInt(ocaso[0]) + parseInt(ocaso[1])/60;
+  -function getWeatherIcon(cadena,hora){if(hora<orto||hora>=ocaso)return'/common/img/weather/noche/'+_getWeatherIcon(cadena);return'/common/img/weather/dia/'+_getWeatherIcon(cadena)}
   -function _getWeatherIcon(cadena){switch(cadena){case "Despejado":return'despejado.svg';case "Bruma":return'bruma.svg';case "Nuboso con lluvia escasa":return'llovizna.svg';case "Cubierto":return'cubierto.svg';case "Nubes altas":return'nubes-altas.svg';case "Muy nuboso":return'nuboso.svg';case "Poco nuboso":return'poco-nuboso.svg';case "Niebla":return'niebla.svg';case "Intervalos nubosos":return'poco-nuboso.svg';case "Muy nuboso con lluvia escasa":return'llovizna.svg';case "Nuboso":return'poco-nuboso.svg'}}
 
   -var estadoCieloActual = getWeatherValues(hourlyData[0].prediccion.dia[0].estadoCielo);
@@ -31,7 +38,7 @@ else
     div(class='meteo-velocidadViento text-center mx-auto my-3')
       p #{takeValuesVientoVelocidad(hourlyData[0].prediccion.dia[0].vientoAndRachaMax)} km/h
     div(class='meteo-indiceUV text-center mx-auto my-3')
-      p uv : #{diaryData[0].prediccion.dia[1].uvMax}
+      p UV#{diaryData[0].prediccion.dia[1].uvMax}
     div(class='meteo-masInfo text-center mx-auto my-3')
       p +info
       
@@ -40,71 +47,47 @@ else
     div(class='col border border-secondary rounded')
       h2 Predicción para los próximos 7 dias
   
-  div(class='swiper-container')
+  div(class='swiper-container slider-days')
     div(class='swiper-wrapper')
-      div(class='swiper-slide')
-        div(class='prevision-grid-container')
-          div(class='prevision-dia text-center mx-auto my-auto')
-            p #{date.weekdayStr[1]}
-          div(class='prevision-icono')
-            -var estadoCielo1 = diaryData[0].prediccion.dia[1].estadoCielo[0].descripcion;
-            img(src=getWeatherIcon(estadoCielo1), alt=estadoCielo1, title=estadoCielo1, style='width:100%; height:100%;')
-          div(class='prevision-minMax text-center mx-auto my-auto')
-            p #{diaryData[0].prediccion.dia[1].temperatura.maxima}º / #{diaryData[0].prediccion.dia[1].temperatura.minima}º
-          div(class='prevision-sensacion text-center mx-auto my-auto')
-            p #{diaryData[0].prediccion.dia[1].sensTermica.maxima}º / #{diaryData[0].prediccion.dia[1].sensTermica.minima}º
-      div(class='swiper-slide')
-        div(class='prevision-grid-container')
-          div(class='prevision-dia text-center mx-auto my-auto')
-            p #{date.weekdayStr[2]}
-          div(class='prevision-icono')
-            -var estadoCielo2 = diaryData[0].prediccion.dia[2].estadoCielo[0].descripcion;
-            img(src=getWeatherIcon(estadoCielo2), alt=estadoCielo2, title=estadoCielo2, style='width:100%; height:100%;')
-          div(class='prevision-minMax text-center mx-auto my-auto')
-            p #{diaryData[0].prediccion.dia[2].temperatura.maxima}º / #{diaryData[0].prediccion.dia[2].temperatura.minima}º
-          div(class='prevision-sensacion text-center mx-auto my-auto')
-            p #{diaryData[0].prediccion.dia[2].sensTermica.maxima}º / #{diaryData[0].prediccion.dia[2].sensTermica.minima}º
-      div(class='swiper-slide')
-        div(class='prevision-grid-container')
-          div(class='prevision-dia text-center mx-auto my-auto')
-            p #{date.weekdayStr[3]}
-          div(class='prevision-icono')
-            -var estadoCielo3 = diaryData[0].prediccion.dia[3].estadoCielo[0].descripcion;
-            img(src=getWeatherIcon(estadoCielo3), alt=estadoCielo3, title=estadoCielo3, style='width:100%; height:100%;')
-          div(class='prevision-minMax text-center mx-auto my-auto')
-            p #{diaryData[0].prediccion.dia[3].temperatura.maxima}º / #{diaryData[0].prediccion.dia[3].temperatura.minima}º
-          div(class='prevision-sensacion text-center mx-auto my-auto')
-            p #{diaryData[0].prediccion.dia[3].sensTermica.maxima}º / #{diaryData[0].prediccion.dia[3].sensTermica.minima}º
-      div(class='swiper-slide')
-        div(class='prevision-grid-container')
-          div(class='prevision-dia text-center mx-auto my-auto')
-            p #{date.weekdayStr[4]}
-          div(class='prevision-icono')
-            -var estadoCielo4 = diaryData[0].prediccion.dia[4].estadoCielo[0].descripcion;
-            img(src=getWeatherIcon(estadoCielo4), alt=estadoCielo4, title=estadoCielo4, style='width:100%; height:100%;')
-          div(class='prevision-minMax text-center mx-auto my-auto')
-            p #{diaryData[0].prediccion.dia[4].temperatura.maxima}º / #{diaryData[0].prediccion.dia[4].temperatura.minima}º
-          div(class='prevision-sensacion text-center mx-auto my-auto')
-            p #{diaryData[0].prediccion.dia[4].sensTermica.maxima}º / #{diaryData[0].prediccion.dia[4].sensTermica.minima}º
-      div(class='swiper-slide')
-        div(class='prevision-grid-container')
-          div(class='prevision-dia text-center mx-auto my-auto')
-            p #{date.weekdayStr[5]}
-          div(class='prevision-icono')
-            -var estadoCielo5 = diaryData[0].prediccion.dia[5].estadoCielo[0].descripcion;
-            img(src=getWeatherIcon(estadoCielo5), alt=estadoCielo5, title=estadoCielo5, style='width:100%; height:100%;')
-          div(class='prevision-minMax text-center mx-auto my-auto')
-            p #{diaryData[0].prediccion.dia[5].temperatura.maxima}º / #{diaryData[0].prediccion.dia[5].temperatura.minima}º
-          div(class='prevision-sensacion text-center mx-auto my-auto')
-            p #{diaryData[0].prediccion.dia[5].sensTermica.maxima}º / #{diaryData[0].prediccion.dia[5].sensTermica.minima}º
-      div(class='swiper-slide')
-        div(class='prevision-grid-container')
-          div(class='prevision-dia text-center mx-auto my-auto')
-            p #{date.weekdayStr[6]}
-          div(class='prevision-icono')
-            -var estadoCielo6 = diaryData[0].prediccion.dia[6].estadoCielo[0].descripcion;
-            img(src=getWeatherIcon(estadoCielo6), alt=estadoCielo6, title=estadoCielo6, style='width:100%; height:100%;')
-          div(class='prevision-minMax text-center mx-auto my-auto')
-            p #{diaryData[0].prediccion.dia[6].temperatura.maxima}º / #{diaryData[0].prediccion.dia[6].temperatura.minima}º
-          div(class='prevision-sensacion text-center mx-auto my-auto')
-            p #{diaryData[0].prediccion.dia[6].sensTermica.maxima}º / #{diaryData[0].prediccion.dia[6].sensTermica.minima}º
+      each day in [1, 2, 3, 4, 5, 6]
+        div(class='swiper-slide')
+          div(class='prevision-grid-container')
+            div(class='prevision-dia text-center mx-auto my-auto')
+              p #{date.weekdayStr[day]}
+            div(class='prevision-icono')
+              -var estadoCielo = diaryData[0].prediccion.dia[day].estadoCielo[0].descripcion;
+              img(src=getWeatherIcon(estadoCielo), alt=estadoCielo, title=estadoCielo, style='width:100%; height:100%;')
+            div(class='prevision-minMax text-center mx-auto my-auto')
+              p #{diaryData[0].prediccion.dia[day].temperatura.maxima}º / #{diaryData[0].prediccion.dia[day].temperatura.minima}º
+            div(class='prevision-sensacion text-center mx-auto my-auto')
+              p #{diaryData[0].prediccion.dia[day].sensTermica.maxima}º / #{diaryData[0].prediccion.dia[day].sensTermica.minima}º
+
+  // Previsión por horas
+  div(class='row')
+    div(class='col border border-secondary rounded')
+      h2 Predicción para las próximas horas
+
+  div(class='swiper-container slider-hours')
+    div(class='swiper-wrapper')
+      -var hoursArray = [...Array(24).keys()];
+      -var orderedHoursArray = [...Array(24).keys()].rotate(date.hour+1);
+      -var diaryOffset = 0;
+      -var hourlyOffset = hourlyData[0].prediccion.dia[0].estadoCielo[0].periodo;
+      each hour in orderedHoursArray
+        div(class='swiper-slide')
+          div(class='horas-grid-container')
+            //-console.log(hour);
+            div(class='prevision-hora text-center mx-auto my-auto')
+              p #{hour}:00
+            div(class='prevision-icono')              
+              -var estadoCielo = hourlyData[0].prediccion.dia[diaryOffset].estadoCielo[hour-hourlyOffset].descripcion;
+              img(src=getWeatherIcon(estadoCielo, hour), alt=estadoCielo, title=estadoCielo, style='width:100%; height:100%;')
+            div(class='prevision-temperatura text-center mx-auto my-auto')
+              p #{hourlyData[0].prediccion.dia[diaryOffset].temperatura[hour-hourlyOffset].value}º
+            div(class='prevision-humedad text-center mx-auto my-auto')
+              p #{hourlyData[0].prediccion.dia[diaryOffset].humedadRelativa[hour-hourlyOffset].value}%
+            div(class='prevision-viento text-center mx-auto my-auto')
+              p #{hourlyData[0].prediccion.dia[diaryOffset].vientoAndRachaMax[2*(hour-hourlyOffset)].direccion}
+              p #{hourlyData[0].prediccion.dia[diaryOffset].vientoAndRachaMax[2*(hour-hourlyOffset)].velocidad} km/h
+
+            -if(hour>=23){diaryOffset++;hourlyOffset=0}
