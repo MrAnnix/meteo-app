@@ -3,7 +3,8 @@ extends layout
 block content
 
   div(class='container')
-    h1= title
+    a(href='', title=title)
+      h1(class='logo my-3', title=title)
     fieldset
       form(class='md-form mt-0 mb-2', action='/', method='get')
         i(class='fas fa-search fa-icons fa-button__icon')
