@@ -74,7 +74,7 @@ function createDate() {
     minutes: fecha.getMinutes(),
     seconds: fecha.getSeconds(),
     weekday: fecha.getDay(),
-    weekdayStr: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'].rotate(fecha.getDay())
+    weekdayStr: ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'].rotate(fecha.getDay())
   };
 };
 
