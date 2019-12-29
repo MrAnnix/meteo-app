@@ -14,7 +14,7 @@ String.prototype.replaceAll = function(str1, str2, ignore)
 }
 
 function initializeSwiper() {
-  var slidesNumHours = 0.011 * $(window).width();
+  var slidesNumHours = 0.01017811704 * $(window).width();
   var slidesNumDays = slidesNumHours;
   if (slidesNumDays > 6) {
     slidesNumDays = 6;
@@ -67,8 +67,7 @@ function getDetailedWeatherByCoordinates(lat, lng) {
 function getActualWeatherByLocation(loc) {
   let url = '/weather';
   let data = {
-    location: loc,
-    test: $(window).width()    
+    location: loc  
   };
 
   getDataByURL(

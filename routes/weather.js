@@ -7,7 +7,6 @@ var utils = require('./utils');
 
 /* GET full weather block. */
 router.get('/', function (req, res, next) {
-  console.log(req.query.test);
   let query = req.query.location;
   let latitude = req.query.latitude;
   let longitude = req.query.longitude;
