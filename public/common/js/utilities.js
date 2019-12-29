@@ -67,7 +67,8 @@ function getDetailedWeatherByCoordinates(lat, lng) {
 function getActualWeatherByLocation(loc) {
   let url = '/weather';
   let data = {
-    location: loc
+    location: loc,
+    test: $(window).width()    
   };
 
   getDataByURL(
