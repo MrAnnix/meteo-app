@@ -21,7 +21,7 @@ function initializeSwiper() {
   }
 
   var swiperDays = new Swiper('.slider-days', {
-      slidesPerView: 6,
+      slidesPerView: slidesNumDays,
       spaceBetween: 30,
       freeMode: true,
     });
