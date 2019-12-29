@@ -9,11 +9,11 @@ else
   -Array.prototype.rotate=function(){var t=Array.prototype.unshift,r=Array.prototype.splice;return function(o){var p=this.length>>>0;o>>=0;return t.apply(this,r.call(this,o%p,p)),this}}();
   -String.prototype.replaceAll = function(str1, str2, ignore){return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g,"\\$&"),(ignore?"gi":"g")),(typeof(str2)=="string")?str2.replace(/\$/g,"$$$$"):str2);};
 
-  -function takeValues(cadena){var foo=cadena.find(a=>a.periodo==date.hour);var value=foo.value;return value;}
-  -function takeValuesVientoDireccion(cadena){var foo=cadena.find(a=>a.periodo==date.hour);var direccion=foo.direccion;return direccion;}
-  -function takeValuesVientoVelocidad(cadena){var foo=cadena.find(a=>a.periodo==date.hour);var velocidad=foo.velocidad;return velocidad;}
+  -function takeValues(item){var target = item.find(e=>e.periodo==date.hour); if(target) return target.value; return item[item.length-1].value;}
+  -function takeValuesVientoDireccion(item){var target = item.find(e=>e.periodo==date.hour); if(target) return target.direccion; return item[item.length-2].direccion;}
+  -function takeValuesVientoVelocidad(item){var target = item.find(e=>e.periodo==date.hour); if(target) return target.velocidad; return item[item.length-2].velocidad;}
 
-  -function getWeatherValues(cadena){var foo=cadena.find(a=>a.periodo==date.hour);var descripcion=foo.descripcion;return descripcion;}
+  -function getEstadoCieloActual(cadena){var foo=cadena.find(a=>a.periodo==date.hour);if(foo){return foo.descripcion;}else{return cadena[cadena.length-1].descripcion;}}
   -var orto = hourlyData[0].prediccion.dia[0].orto.split(":");
   -orto = parseInt(orto[0]) + parseInt(orto[1])/60;
   -var ocaso = hourlyData[0].prediccion.dia[0].ocaso.split(":");
@@ -21,7 +21,7 @@ else
   -function getWeatherIcon(cadena,hora){if(hora<orto||hora>=ocaso)return'/common/img/weather/noche/'+_getWeatherIcon(cadena);return'/common/img/weather/dia/'+_getWeatherIcon(cadena)}
   -function _getWeatherIcon(cadena){switch(cadena){case "Despejado":return'despejado.svg';case "Bruma":return'bruma.svg';case "Nuboso con lluvia escasa":return'llovizna.svg';case "Cubierto":return'cubierto.svg';case "Nubes altas":return'nubes-altas.svg';case "Muy nuboso":return'nuboso.svg';case "Poco nuboso":return'poco-nuboso.svg';case "Niebla":return'niebla.svg';case "Intervalos nubosos":return'poco-nuboso.svg';case "Muy nuboso con lluvia escasa":return'llovizna.svg';case "Nuboso":return'poco-nuboso.svg'}}
 
-  -var estadoCieloActual = getWeatherValues(hourlyData[0].prediccion.dia[0].estadoCielo);
+  -var estadoCieloActual = getEstadoCieloActual(hourlyData[0].prediccion.dia[0].estadoCielo);
 
   div(class='meteo-grid-container')
     div(class='meteo-icono')
@@ -68,8 +68,9 @@ else
     div(class='swiper-wrapper')
       -var hoursArray = [...Array(24).keys()];
       -var orderedHoursArray = [...Array(24).keys()].rotate(date.hour+1);
-      -var diaryOffset = 0;
-      -var hourlyOffset = hourlyData[0].prediccion.dia[0].estadoCielo[0].periodo;
+      -var dataDate = new Date(hourlyData[0].prediccion.dia[0].fecha);
+      -var diaryOffset = date.day-dataDate.getDate();
+      -var hourlyOffset = hourlyData[0].prediccion.dia[diaryOffset].estadoCielo[0].periodo;
       div(class='swiper-slide')
           div(class='horas-grid-container')
             //-console.log(hour);
