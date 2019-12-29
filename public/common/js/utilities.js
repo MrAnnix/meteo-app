@@ -14,7 +14,7 @@ String.prototype.replaceAll = function(str1, str2, ignore)
 }
 
 function initializeSwiper() {
-  var slidesNumHours = 0.013 * $(window).width();
+  var slidesNumHours = 0.011 * $(window).width();
   var slidesNumDays = slidesNumHours;
   if (slidesNumDays > 6) {
     slidesNumDays = 6;
