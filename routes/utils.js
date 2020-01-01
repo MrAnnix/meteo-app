@@ -67,6 +67,7 @@ Array.prototype.rotate = (function() {
 function createDate() {
   var fecha = new Date();
   return {
+    date: fecha,
     year: fecha.getFullYear(),
     month: fecha.getMonth(),
     day: fecha.getDate(),
