@@ -91,7 +91,24 @@ function isInMunicipios(municipio, provincia) {
 
 
 /* Create Google Places API request options */
-function createOptionsForFindPlaceFromText(url, query) {
+function createOptionsForFindPlaceFromText(url, query, coords) {
+  if (coords)
+    return {
+      method: 'GET',
+      uri: url,
+      qs: {
+        input: query,
+        inputtype: 'textquery',
+        fields: 'formatted_address,geometry/location',
+        locationbias: 'point:'+coords.latitude+','+coords.longitude,
+        key: APIKeys.google_places_api_key
+      },
+      headers: {
+        'Accept': 'application/json;charset=UTF-8',
+        'Accept-Charset': 'UTF-8',
+        'Accept-Language': 'es-ES,es;q=0.9'
+      }
+    };
   return {
     method: 'GET',
     uri: url,
@@ -158,9 +175,9 @@ function getCoordinatesFromIP(ip) {
         var place = JSON.parse(body);
         lat = place.latitude;
         lng = place.longitude;
-        resolve({latitude: lat, longitude: lng});
+        return resolve({latitude: lat, longitude: lng});
       } catch (e) {
-        reject(e);
+        return reject(e);
       }
     });
   });
@@ -168,9 +185,9 @@ function getCoordinatesFromIP(ip) {
 
 
 /* Get coordinates from query. */
-function getCoordinatesFromQuery(query, clientIPLocation) { 
+function _getCoordinatesFromQuery(query, clientCoords) { 
   var placesAPIURL = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json';
-  const options = createOptionsForFindPlaceFromText(placesAPIURL, query);
+  const options = createOptionsForFindPlaceFromText(placesAPIURL, query, clientCoords);
   
   return new Promise(function (resolve, reject) {
     request(options, function (error, response, body) {
@@ -181,11 +198,22 @@ function getCoordinatesFromQuery(query, clientIPLocation) {
         var place = JSON.parse(body);
         lat = place.candidates[0].geometry.location.lat;
         lng = place.candidates[0].geometry.location.lng;
-        resolve({latitude: lat, longitude: lng});
+        return resolve({latitude: lat, longitude: lng});
       } catch (e) {
-        reject(e);
+        return reject(e);
       }
     });
+  });
+};
+
+
+function getCoordinatesFromQuery(query, clientIP) {
+  var userLocation = getCoordinatesFromIP(clientIP);  
+  return userLocation.then(coordinates => {
+    console.log(userLocation);
+    return _getCoordinatesFromQuery(query, userLocation);
+  }).catch(function () {
+    return _getCoordinatesFromQuery(query);
   });
 };
 
@@ -214,9 +242,9 @@ function getLocalityFromCoordinates(latitude, longitude) {
             return isInMunicipios(municipio, provincia);
           }
         });
-        resolve({municipio: municipio, provincia: provincia});
+        return resolve({municipio: municipio, provincia: provincia});
       } catch (e) {
-        reject(e);
+        return reject(e);
       }
     });
   });
@@ -252,9 +280,9 @@ function getAemetDiaryData(municipio, provincia) {
         return reject(error);
       try {
         var data = JSON.parse(body);
-        resolve(data.datos);
+        return resolve(data.datos);
       } catch (e) {
-        reject(e);
+        return reject(e);
       }
     });
   });
@@ -266,9 +294,9 @@ function getAemetDiaryData(municipio, provincia) {
         try {
           if (response.statusCode != 200)
             throw 'Aemet data not found or was expired';
-          resolve(JSON.parse(body));         
+          return resolve(JSON.parse(body));         
         } catch (e) {
-          reject(e);
+          return reject(e);
         }
       });
     }).catch(function(error){
@@ -289,9 +317,9 @@ function getAemetHourlyData(municipio, provincia) {
         return reject(error);
       try {
         var data = JSON.parse(body);
-        resolve(data.datos);
+        return resolve(data.datos);
       } catch (e) {
-        reject(e);
+        return reject(e);
       }
     });
   });
@@ -304,13 +332,13 @@ function getAemetHourlyData(municipio, provincia) {
         try {
           if (response.statusCode != 200)
             throw 'Aemet data not found or was expired';
-          resolve(JSON.parse(body));         
+          return resolve(JSON.parse(body));         
         } catch (e) {
-          reject(e);
+          return reject(e);
         }
       });
     }).catch(function(error){
-      reject(error);
+      return reject(error);
     });
   });
 };
