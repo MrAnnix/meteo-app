@@ -127,8 +127,48 @@ function createOptionsForGeocode(url, lat, lng) {
 };
 
 
+function createOptionsForIPGeolocation(url, ip) {
+  return {
+    method: 'GET',
+    uri: url,
+    qs: {
+      ip: ip,
+      apiKey: APIKeys.ipgeolocation_api_key
+    },
+    headers: {
+      'Accept': 'application/json;charset=UTF-8',
+      'Accept-Charset': 'UTF-8',
+      'Accept-Language': 'es-ES,es;q=0.9'
+    }
+  };
+};
+
+
+/* Get coordinates from client IP address */
+function getCoordinatesFromIP(ip) {
+  var ipgeolocationAPIURL = 'https://api.ipgeolocation.io/ipgeo?apiKey=API_KEY&ip=1.1.1.1'
+  const options = createOptionsForIPGeolocation(ipgeolocationAPIURL, ip);
+  
+  return new Promise(function (resolve, reject) {
+    request(options, function (error, response, body) {
+      if (error)
+        return reject(error);
+      var lat,lng;
+      try {
+        var place = JSON.parse(body);
+        lat = place.latitude;
+        lng = place.longitude;
+        resolve({latitude: lat, longitude: lng});
+      } catch (e) {
+        reject(e);
+      }
+    });
+  });
+};
+
+
 /* Get coordinates from query. */
-function getCoordinatesFromQuery(query) {
+function getCoordinatesFromQuery(query, clientIPLocation) { 
   var placesAPIURL = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json';
   const options = createOptionsForFindPlaceFromText(placesAPIURL, query);
   
