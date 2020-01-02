@@ -235,6 +235,9 @@ function getLocalityFromCoordinates(latitude, longitude) {
             muni = a.address_components.find(e => e.types[0] === "locality");
           }
           var prov = a.address_components.find(e => e.types[0] === "administrative_area_level_2");
+          if (!prov) {
+            prov = a.address_components.find(e => e.types[0] === "administrative_area_level_1");
+          }
           if (muni && prov) {
             municipio = muni.long_name;
             provincia = prov.long_name;
