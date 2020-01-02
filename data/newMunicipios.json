@@ -893,17 +893,19 @@
 		"Orrius": "08153"
 	},
 	"Biscay": {
-		"Aránzazu": "48006",
-		"Sopela(REVISAR)": "48085"
+		"Arantzazu": "48006",
+		"Sopelana": "48085"
 	},
 	"Bizkaia": {
+    "Arantzazu": "48006",
 		"Atxondo": "48091",
 		"Igorre": "48094",
 		"Ispaster": "48049",
 		"Kortezubi": "48907",
 		"Lemoa": "48055",
 		"Muxika": "48067",
-		"Otxandio": "48072"
+		"Otxandio": "48072",
+    "Sopela": "48085"
 	},
 	"Burgos": {
 		"Abajas": "09001",
