@@ -210,7 +210,6 @@ function _getCoordinatesFromQuery(query, clientCoords) {
 function getCoordinatesFromQuery(query, clientIP) {
   var userLocation = getCoordinatesFromIP(clientIP);  
   return userLocation.then(coordinates => {
-    console.log(userLocation);
     return _getCoordinatesFromQuery(query, userLocation);
   }).catch(function () {
     return _getCoordinatesFromQuery(query);
