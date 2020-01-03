@@ -16,12 +16,14 @@ else
   -function takeValuesVientoVelocidad(item){var target = item.find(e=>e.periodo==date.hour); if(target) return target.velocidad; return item[item.length-2].velocidad;}
 
   -function getEstadoCieloActual(cadena){var foo=cadena.find(a=>a.periodo==date.hour);if(foo){return foo.descripcion;}else{return cadena[cadena.length-1].descripcion;}}
-  -var orto = hourlyData[0].prediccion.dia[0].orto.split(":");
-  -orto = parseInt(orto[0]) + parseInt(orto[1])/60;
-  -var ocaso = hourlyData[0].prediccion.dia[0].ocaso.split(":");
-  -ocaso = parseInt(ocaso[0]) + parseInt(ocaso[1])/60;
-  -function getWeatherIcon(cadena,hora){if(hora<orto||hora>=ocaso)return'/common/img/weather/noche/'+_getWeatherIcon(cadena);return'/common/img/weather/dia/'+_getWeatherIcon(cadena)}
-  -function _getWeatherIcon(cadena){switch(cadena){case"Despejado":return'despejado.svg';case"Bruma":return'bruma.svg';case"Nuboso con lluvia escasa":return'llovizna.svg';case"Cubierto":return'cubierto.svg';case"Nubes altas":return'nubes-altas.svg';case"Muy nuboso":return'nuboso.svg';case"Poco nuboso":return'poco-nuboso.svg';case"Niebla":return'niebla.svg';case"Intervalos nubosos":return'poco-nuboso.svg';case"Muy nuboso con lluvia escasa":return'llovizna.svg';case"Nuboso":return'poco-nuboso.svg';case"Cubierto con lluvia":return'cubierto-lluvia.svg';case"Intervalos nubosos con lluvia":return'intervalos-lluvia.svg';case"Muy nuboso con lluvia":return'nuboso-lluvia.svg';default:return'none.svg';};}
+  -function _getWeatherIcon(cadena){var foo=cadena.find(a=>a.periodo==date.hour);if(foo){return foo.value;}else{return cadena[cadena.length-1].value;}}
+  -function getWeatherIcon(cadena, hora){const aemetURL='https://www.aemet.es/imagenes/png/estado_cielo/';return aemetURL+_getWeatherIcon(cadena)+'_g.png';}
+  //-var orto = hourlyData[0].prediccion.dia[0].orto.split(":");
+  //-orto = parseInt(orto[0]) + parseInt(orto[1])/60;
+  //-var ocaso = hourlyData[0].prediccion.dia[0].ocaso.split(":");
+  //-ocaso = parseInt(ocaso[0]) + parseInt(ocaso[1])/60;
+  //-function getWeatherIcon(cadena,hora){if(hora<orto||hora>=ocaso)return'/common/img/weather/noche/'+_getWeatherIcon(cadena);return'/common/img/weather/dia/'+_getWeatherIcon(cadena)}
+  //-function _getWeatherIcon(cadena){switch(cadena){case"Despejado":return'despejado.svg';case"Bruma":return'bruma.svg';case"Nuboso con lluvia escasa":return'llovizna.svg';case"Cubierto":return'cubierto.svg';case"Nubes altas":return'nubes-altas.svg';case"Muy nuboso":return'nuboso.svg';case"Poco nuboso":return'poco-nuboso.svg';case"Niebla":return'niebla.svg';case"Intervalos nubosos":return'poco-nuboso.svg';case"Muy nuboso con lluvia escasa":return'llovizna.svg';case"Nuboso":return'poco-nuboso.svg';case"Cubierto con lluvia":return'cubierto-lluvia.svg';case"Intervalos nubosos con lluvia":return'intervalos-lluvia.svg';case"Muy nuboso con lluvia":return'nuboso-lluvia.svg';default:return'none.svg';};}
   
   -var dataDate = new Date(hourlyData[0].prediccion.dia[0].fecha);  
   -var diaryOffset = dateDiff(dataDate, date.date);  
