@@ -32,7 +32,7 @@ else
 
   div(class='meteo-grid-container')
     div(class='meteo-icono')
-      img(src=getWeatherIcon(estadoCieloActual.value, date.hour), alt=estadoCieloActual.descripcion, title=estadoCieloActual.descripcion, style='width:100%; height:100%; padding:30px ')
+      img(src=getWeatherIcon(estadoCieloActual.value, date.hour), alt=estadoCieloActual.descripcion, title=estadoCieloActual.descripcion, style='padding:30px ')
     div(class='meteo-temperatura text-center mx-auto my-auto')
       p #{parseInt(takeValues(hourlyData[0].prediccion.dia[diaryOffset].temperatura))}º
     div(class='meteo-minMax text-center mx-auto my-3')
@@ -80,7 +80,7 @@ else
             div(class='prevision-hora text-center mx-auto my-auto')
               p Hora
             div(class='prevision-icono-horas')              
-              img(src='/common/img/weather/none.svg', alt='Estado del cielo', title='Estado del cielo', style='width:100%; height:100%;') 
+              img(src='/common/img/weather/none.svg', alt='Estado del cielo', title='Estado del cielo') 
             div(class='prevision-temperatura-horas text-center mx-auto my-auto')
               p Temp.
             div(class='prevision-humedad-horas text-center mx-auto my-auto')
@@ -99,7 +99,7 @@ else
             div(class='prevision-icono-horas')
               if (hourlyData[0].prediccion.dia[diaryOffset].estadoCielo[hour-hourlyOffset])
                 -var estadoCielo = hourlyData[0].prediccion.dia[diaryOffset].estadoCielo[hour-hourlyOffset];
-                img(src=getWeatherIcon(estadoCielo.value, hour), alt=estadoCielo.descripcion, title=estadoCielo.descripcion, style='width:100%; height:100%;')
+                img(src=getWeatherIcon(estadoCielo.value, hour), alt=estadoCielo.descripcion, title=estadoCielo.descripcion)
             div(class='prevision-temperatura-horas text-center mx-auto my-auto')
               if (hourlyData[0].prediccion.dia[diaryOffset].temperatura[hour-hourlyOffset])
                 p #{parseInt(hourlyData[0].prediccion.dia[diaryOffset].temperatura[hour-hourlyOffset].value)}º
