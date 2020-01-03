@@ -357,6 +357,8 @@ float: left;
 
 .meteo-grid-container {
   display: grid;
+  justify-items: center;
+  align-items: center;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
 }
@@ -410,12 +412,16 @@ font-size: 150%;
 
 .prevision-grid-container {
   display: grid;
+  justify-items: center;
+  align-items: center;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 
 .horas-grid-container {
   display: grid;
+  justify-items: center;
+  align-items: center;
   grid-template-columns: 2fr;
   grid-template-rows: repeat(7, .75fr);
   grid-template-areas: "prevision-hora" "prevision-icono-horas" "prevision-temperatura-horas" "prevision-humedad-horas" "prevision-sensacion-termica-horas" "prevision-viento-dir-horas" "prevision-viento-vel-horas";
