@@ -15,9 +15,8 @@ else
   -function takeValuesVientoDireccion(item){var target = item.find(e=>e.periodo==date.hour); if(target) return target.direccion; return item[item.length-2].direccion;}
   -function takeValuesVientoVelocidad(item){var target = item.find(e=>e.periodo==date.hour); if(target) return target.velocidad; return item[item.length-2].velocidad;}
 
-  -function getEstadoCieloActual(cadena){var foo=cadena.find(a=>a.periodo==date.hour);if(foo){return foo.descripcion;}else{return cadena[cadena.length-1].descripcion;}}
-  -function _getWeatherIcon(cadena){var foo=cadena.find(a=>a.periodo==date.hour);if(foo){return foo.value;}else{return cadena[cadena.length-1].value;}}
-  -function getWeatherIcon(cadena, hora){const aemetURL='https://www.aemet.es/imagenes/png/estado_cielo/';return aemetURL+_getWeatherIcon(cadena)+'_g.png';}
+  -function getEstadoCieloActual(cadena){var foo=cadena.find(a=>a.periodo==date.hour);if(foo){return foo;}else{return cadena[cadena.length-1];}}
+  -function getWeatherIcon(cadena, hora){const aemetURL='https://www.aemet.es/imagenes/png/estado_cielo/';return aemetURL+cadena+'_g.png';}
   //-var orto = hourlyData[0].prediccion.dia[0].orto.split(":");
   //-orto = parseInt(orto[0]) + parseInt(orto[1])/60;
   //-var ocaso = hourlyData[0].prediccion.dia[0].ocaso.split(":");
@@ -33,7 +32,7 @@ else
 
   div(class='meteo-grid-container')
     div(class='meteo-icono')
-      img(src=getWeatherIcon(estadoCieloActual, date.hour), alt=estadoCieloActual, title=estadoCieloActual, style='width:100%; height:100%; padding:30px ')
+      img(src=getWeatherIcon(estadoCieloActual, date.hour), alt=estadoCieloActual.descripcion, title=estadoCieloActual.descripcion, style='width:100%; height:100%; padding:30px ')
     div(class='meteo-temperatura text-center mx-auto my-auto')
       p #{parseInt(takeValues(hourlyData[0].prediccion.dia[diaryOffset].temperatura))}º
     div(class='meteo-minMax text-center mx-auto my-3')
@@ -61,8 +60,8 @@ else
             div(class='prevision-dia text-center mx-auto my-auto')
               p #{date.weekdayStr[day]}
             div(class='prevision-icono-dias')
-              -var estadoCielo = diaryData[0].prediccion.dia[day].estadoCielo[0].descripcion;
-              img(src=getWeatherIcon(estadoCielo), alt=estadoCielo, title=estadoCielo, style='width:100%; height:100%;')
+              -var estadoCielo = diaryData[0].prediccion.dia[day].estadoCielo[0];
+              img(src=getWeatherIcon(estadoCielo.value), alt=estadoCielo.descripcion, title=estadoCielo.descripcion, style='width:100%; height:100%;')
             div(class='prevision-minMax text-center mx-auto my-auto')
               p #{parseInt(diaryData[0].prediccion.dia[day].temperatura.maxima)}º / #{parseInt(diaryData[0].prediccion.dia[day].temperatura.minima)}º
             div(class='prevision-sensacion text-center mx-auto my-auto')
@@ -99,8 +98,8 @@ else
               p #{hour}:00
             div(class='prevision-icono-horas')
               if (hourlyData[0].prediccion.dia[diaryOffset].estadoCielo[hour-hourlyOffset])
-                -var estadoCielo = hourlyData[0].prediccion.dia[diaryOffset].estadoCielo[hour-hourlyOffset].descripcion;
-                img(src=getWeatherIcon(estadoCielo, hour), alt=estadoCielo, title=estadoCielo, style='width:100%; height:100%;')
+                -var estadoCielo = hourlyData[0].prediccion.dia[diaryOffset].estadoCielo[hour-hourlyOffset];
+                img(src=getWeatherIcon(estadoCielo.value, hour), alt=estadoCielo.descripcion, title=estadoCielo.descripcion, style='width:100%; height:100%;')
             div(class='prevision-temperatura-horas text-center mx-auto my-auto')
               if (hourlyData[0].prediccion.dia[diaryOffset].temperatura[hour-hourlyOffset])
                 p #{parseInt(hourlyData[0].prediccion.dia[diaryOffset].temperatura[hour-hourlyOffset].value)}º
