@@ -61,7 +61,7 @@ else
               p #{date.weekdayStr[day]}
             div(class='prevision-icono-dias')
               -var estadoCielo = diaryData[0].prediccion.dia[day].estadoCielo[0];
-              img(src=getWeatherIcon(estadoCielo.value), alt=estadoCielo.descripcion, title=estadoCielo.descripcion, style='width:100%; height:100%;')
+              img(src=getWeatherIcon(estadoCielo.value), alt=estadoCielo.descripcion, title=estadoCielo.descripcion)
             div(class='prevision-minMax text-center mx-auto my-auto')
               p #{parseInt(diaryData[0].prediccion.dia[day].temperatura.maxima)}º / #{parseInt(diaryData[0].prediccion.dia[day].temperatura.minima)}º
             div(class='prevision-sensacion text-center mx-auto my-auto')
