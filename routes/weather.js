@@ -27,6 +27,7 @@ router.get('/', function (req, res, next) {
         });
       }).catch(error => {
         console.log(error);
+        res.status(404);
         res.render('weather', {
           title: 'meteo',
           error: 'No pudo obtenerse la información del tiempo asociada a "' + query + '" revise su consulta'
@@ -34,6 +35,7 @@ router.get('/', function (req, res, next) {
       });
     }).catch(error => {
       console.log(error);
+      res.status(404);
       res.render('weather', {
         title: 'meteo',
         error: 'No pudimos encontrar ninguna localidad asociada a su ubicación'
@@ -54,6 +56,7 @@ router.get('/', function (req, res, next) {
           });
         }).catch(error => {
           console.log(error);
+          res.status(404);
           res.render('weather', {
             title: 'meteo',
             error: 'No pudo obtenerse la información del tiempo asociada a "' + query.replaceAll('+', ' ') + '" revise su consulta'
@@ -61,6 +64,7 @@ router.get('/', function (req, res, next) {
         });
       }).catch(error => {
         console.log(error);
+        res.status(404);
         res.render('weather', {
           title: 'meteo',
           error: 'No pudimos encontrar el lugar "' + query.replaceAll('+', ' ') + '" revise su consulta'
@@ -68,12 +72,14 @@ router.get('/', function (req, res, next) {
       });
     }).catch(error => {
       console.log(error);
+      res.status(404);
       res.render('weather', {
         title: 'meteo',
         error: 'No pudimos encontrar el lugar "' + query.replaceAll('+', ' ') + '"'
       });
     });
   } else {
+    res.status(404);
     res.render('weather', {
       title: 'meteo',
       error: 'Lo sentimos, no pudimos obtener su ubicación o su navegador no es compatible'

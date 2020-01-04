@@ -2,8 +2,13 @@ function getDataByURL(url, datos, obtainedData) {
   $.ajax({
     url: url,
     data: datos,
-    success: function(data) {
-      obtainedData(data); 
+    success: function(response) {
+      obtainedData(response); 
+    },
+    error: function(xhr, ajaxOptions, thrownError) {
+      if (xhr.status == 404)
+        obtainedData(xhr.responseText);
+      console.error(xhr.status + ' - ' + thrownError + '\n' + xhr.responseText);    
     }
   });
 }
