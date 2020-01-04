@@ -304,7 +304,7 @@ function getAemetDiaryData(municipio, provincia) {
       request(options, function (error, response, body) {
         try {
           if (response.statusCode != 200)
-            throw 'Aemet data not found or was expired';
+            throw 'Aemet data not found or was expired - ' + response.statusCode;
           return resolve(JSON.parse(body));         
         } catch (e) {
           return reject(e);
@@ -342,7 +342,7 @@ function getAemetHourlyData(municipio, provincia) {
       request(options, function (error, response, body) {
         try {
           if (response.statusCode != 200)
-            throw 'Aemet data not found or was expired';
+            throw 'Aemet data not found or was expired - ' + response.statusCode;
           return resolve(JSON.parse(body));         
         } catch (e) {
           return reject(e);
