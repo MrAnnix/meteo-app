@@ -7,9 +7,9 @@ var utils = require('./utils');
 
 /* GET full weather block. */
 router.get('/', function (req, res, next) {
-  let query = req.query.location;
-  let latitude = req.query.latitude;
-  let longitude = req.query.longitude;
+  let query = utils.coalesce(req.query.location);
+  let latitude = utils.coalesce(req.query.latitude);
+  let longitude = utils.coalesce(req.query.longitude); 
   
   let clientIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
   

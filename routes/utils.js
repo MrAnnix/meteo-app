@@ -13,6 +13,15 @@ String.prototype.replaceAll = function(str1, str2, ignore)
 }
 
 
+function coalesce(arr) {
+  if (!Array.isArray(arr)) return arr;
+  if (arr.length == 0) return null;
+  var v = arr[0];
+  v = (typeof v == "function" ? v() : v);
+  return v || coalesce(arr.slice(1));
+};
+
+
 /**
  * Handle multiple requests at once
  * @param urls [array]
@@ -346,4 +355,4 @@ function getAemetHourlyData(municipio, provincia) {
 };
 
 
-module.exports = { getCoordinatesFromQuery, getLocalityFromCoordinates, getAemetDiaryData, getAemetHourlyData, createDate, String };
+module.exports = { getCoordinatesFromQuery, getLocalityFromCoordinates, getAemetDiaryData, getAemetHourlyData, createDate, String, coalesce };
