@@ -7,11 +7,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'meteo' });
 });
 
-router.get('/index', function(req, res, next) {
-  res.redirect(301, url.format({ pathname:'/', query:req.query }));
-});
-
-router.get('/index.*', function(req, res, next) {
+router.get(['/index','/index.html','/index.htm','/index.jsp','/index.asp','/index.php'], function(req, res, next) {
   res.redirect(301, url.format({ pathname:'/', query:req.query }));
 });
 
