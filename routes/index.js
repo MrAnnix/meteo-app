@@ -1,11 +1,18 @@
+const url = require('url');
 var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  let location = req.query.location;
-  
-  res.render('index', { title: 'meteo', location });
+  res.render('index', { title: 'meteo' });
+});
+
+router.get('/index', function(req, res, next) {
+  res.redirect(301, url.format({ pathname:'/', query:req.query }));
+});
+
+router.get('/index.*', function(req, res, next) {
+  res.redirect(301, url.format({ pathname:'/', query:req.query }));
 });
 
 module.exports = router;
