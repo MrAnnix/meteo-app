@@ -25,6 +25,6 @@ npm install
 npm start
 ```
 
-Navegar desde el navegador a [http://localhost:8080/]
+Navegar desde el navegador a [http://localhost:8080/](http://localhost:8080/)
 
 Para ver una demo puedes acceder [aquí](https://meteo.raulsanmartin.me/)
