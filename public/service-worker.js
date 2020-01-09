@@ -1,6 +1,6 @@
 'use strict';
 
-const CACHE_NAME = 'static-cache-meteo-app-v1.1';
+const CACHE_NAME = 'static-cache-meteo-app-v1';
 
 const FILES_TO_CACHE = [
   '/offline.html',
