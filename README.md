@@ -9,7 +9,7 @@ Consulta la información del tiempo en tu zona haciendo uso de la API de [ipgeol
 
 ## Prerequisitos
 - Claves para las respectivas APIs
-- [Node.js](https://nodejs.org/)
+- Tener instalado [Node.js](https://nodejs.org/)
 - Un navegador compatible ;)
 
 ## Instrucciones
