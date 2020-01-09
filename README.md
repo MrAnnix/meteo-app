@@ -8,6 +8,7 @@ Consulta la información del tiempo en tu zona haciendo uso de la API de [ipgeol
 - Frontend: Pug.js (HTML5), CSS and JavaScript.
 
 ## Prerequisitos
+- Claves para las respectivas APIs
 - [Node.js](https://nodejs.org/)
 - Un navegador compatible ;)
 
