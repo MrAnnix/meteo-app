@@ -3,7 +3,7 @@ extends layout
 block content
 
   div(class='container')
-    a(href='', title=title)
+    a(href='/', title=title)
       h1(class='logo my-3', title=title)
     fieldset
       form(class='md-form mt-0 mb-2', action='/', method='get')
@@ -20,3 +20,15 @@ block content
     script(type='text/javascript', src='/lib/jquery/js/jquery.min.js')
     script(type='text/javascript', src='/lib/bootstrap/js/bootstrap.min.js')
     script(type='text/javascript', src='/common/js/utilities.js')
+    
+    // Service worker
+    script.
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+              .then((reg) => {
+                console.log('Service worker registered.', reg);
+              });
+        });
+      }
+    

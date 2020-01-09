@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <!-- Basic needs-->
+      <meta charset="utf-8">
+      <title>Sin conexión</title>
+      <meta name="description" content="Consulta la información meteorológica de forma rápida y sencilla">
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+      <!-- CSS-->
+      <link rel="stylesheet" href="/lib/swiper/css/swiper.min.css">
+      <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/lib/fontawesome/css/all.min.css">
+      <link rel="stylesheet" href="/common/css/style.css">
+      <!-- Address bar theme-->
+      <meta name="theme-color" content="#CED6DC">
+      <!-- Favicons-->
+      <link rel="icon" href="/common/img/favicon.png">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <meta name="apple-mobile-web-app-title" content="PWA meteo">
+      <link rel="apple-touch-icon" href="/common/img/icon-152x152.png">
+      <!-- Manifest for PWA-->
+      <link rel="manifest" href="/manifest.json">
+   </head>
+   <body>
+      <!-- Content-->
+      <div class="container">
+         <a href="/" title="Sin conexión">
+            <h1 class="logo my-3" title="Sin conexión"></h1>
+         </a>
+         <fieldset>
+            <form class="md-form mt-0 mb-2" action="/" method="get"><i class="fas fa-search fa-icons fa-button__icon"></i><input class="form-control mb-1" name="location" id="searchPlace" type="text" placeholder="Buscar ubicación, código postal..." required><input type="submit" style="position: absolute; left: -9999px"></form>
+         </fieldset>
+         <!-- Full Weather-->
+         <div id="fullWeather">
+            <p class="error">La conexión no está disponible, inténtalo de nuevo más tarde</p>
+         </div>
+      </div>
+   </body>
+</html>

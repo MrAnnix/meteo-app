@@ -14,8 +14,19 @@ html
     
     link(rel='stylesheet', href='/common/css/style.css')
     
-    // Favicon
+    // Address bar theme
+    meta(name='theme-color', content='#CED6DC')
+    
+    // Favicons
     link(rel='icon', href='/common/img/favicon.png')
+    
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='apple-mobile-web-app-status-bar-style', content='black')
+    meta(name='apple-mobile-web-app-title', content='PWA meteo')
+    link(rel='apple-touch-icon', href='/common/img/icon-152x152.png')
+    
+    // Manifest for PWA
+    link(rel='manifest', href='/manifest.json')
     
   body
     // Content
