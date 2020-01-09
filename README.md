@@ -27,4 +27,4 @@ npm start
 
 Navegar desde el navegador a [http://localhost:8080/](http://localhost:8080/)
 
-Para ver una demo puedes acceder [aquí](https://meteo.raulsanmartin.me/), si lo haces desde un navegador móvil incluso podrás instalarlo como una app más.
+Para ver una demo puedes acceder [aquí](https://meteo.raulsanmartin.me/), si lo haces desde un navegador móvil incluso podrás instalarla como una app más.
