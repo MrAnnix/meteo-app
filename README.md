@@ -1,7 +1,7 @@
 # meteo-app
 Codigo fuente de meteo, una [Progresive Web App (PWA)](https://ionicframework.com/docs/intro/what-are-progressive-web-apps "What a PWA is")
 
-Consulta la información del tiempo en tu zona haciendo uso de la API de [ipgeolocation](https://ipgeolocation.io/documentation.html), la API de [Google Places](https://cloud.google.com/maps-platform/places/), la API de la [AEMET](https://opendata.aemet.es/dist/index.html).
+Consulta la información del tiempo en tu zona haciendo uso de la API de [ipgeolocation](https://ipgeolocation.io/documentation.html) (opcional), la API de [Google Places](https://cloud.google.com/maps-platform/places/), la API de la [AEMET](https://opendata.aemet.es/dist/index.html).
 
 ## Como se organiza
 - Backend: Express over Node.js
@@ -16,6 +16,11 @@ Consulta la información del tiempo en tu zona haciendo uso de la API de [ipgeol
 ```sh
 git clone https://github.com/MrAnnix/meteo-app.git
 cd meteo-app
+```
+
+Renombra el fichero `./data/APIKeys_template.json` a `./data/APIKeys.json` y edítalo con tus claves.
+
+```sh
 npm install
 npm start
 ```
