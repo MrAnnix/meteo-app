@@ -117,7 +117,7 @@ function getFullWeather() {
       function success(position) {
         getActualWeatherByCoordinates(position.coords.latitude, position.coords.longitude);
       },
-      function error(error_message) {
+      function error(err) {
         console.warn('ERROR(' + err.code + '): ' + err.message);
       }
     );
@@ -140,7 +140,7 @@ function getDetailedWeather() {
         getDetailedWeatherByCoordinates(position.coords.latitude, position.coords.longitude);
         getPrevisionWeatherByCoordinates(position.coords.latitude, position.coords.longitude);
       },
-      function error(error_message) {
+      function error(err) {
         console.warn('ERROR(' + err.code + '): ' + err.message);
       }
     );
