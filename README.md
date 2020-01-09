@@ -13,7 +13,7 @@ Consulta la información del tiempo en tu zona haciendo uso de la API de [ipgeol
 
 ## Instrucciones
 ```sh
-git clone https://github.com/MrAnnix/meteo-app.git # or clone your own fork
+git clone https://github.com/MrAnnix/meteo-app.git
 cd meteo-app
 npm install
 npm start
