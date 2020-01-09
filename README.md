@@ -4,8 +4,8 @@ Codigo fuente de meteo, una [Progresive Web App (PWA)](https://ionicframework.co
 Consulta la información del tiempo en tu zona haciendo uso de la API de [ipgeolocation](https://ipgeolocation.io/documentation.html) (opcional), la API de [Google Places](https://cloud.google.com/maps-platform/places/), la API de la [AEMET](https://opendata.aemet.es/dist/index.html).
 
 ## Como se organiza
-- Backend: Express over Node.js
-- Frontend: Pug.js (HTML5), CSS and JavaScript.
+- Backend: Express sobre Node.js
+- Frontend: Pug.js (HTML5), CSS y JavaScript.
 
 ## Prerequisitos
 - Claves para las respectivas APIs
