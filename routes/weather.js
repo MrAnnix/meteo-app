@@ -30,7 +30,7 @@ router.get('/', function (req, res, next) {
         res.status(404);
         res.render('weather', {
           title: 'meteo',
-          error: 'No pudo obtenerse la información del tiempo asociada a "' + query + '" revise su consulta'
+          error: 'No pudo obtenerse la información del tiempo asociada a "' + query.replaceAll('+', ' ') + '" revise su consulta'
         });
       });
     }).catch(error => {
